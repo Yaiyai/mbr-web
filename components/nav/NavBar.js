@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { Container } from 'semantic-ui-react'
+import Container from 'react-bootstrap/Container'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookSquare, faInstagramSquare, faLinkedin, faTwitterSquare } from '@fortawesome/free-brands-svg-icons'
 

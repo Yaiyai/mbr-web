@@ -1,11 +1,13 @@
 import React, { useContext } from 'react'
-import { Container } from 'semantic-ui-react'
 import Head from 'next/head'
 import NavBar from '../../components/nav/NavBar'
 import { CompanyContext } from '../../context/companyContext'
+import { MaquinasContext } from '../../context/maquinasContext'
+import Container from 'react-bootstrap/Container'
 
 const BasicLayout = (props) => {
 	const theCompany = useContext(CompanyContext)
+	const theMaquinas = useContext(MaquinasContext)
 	const { children } = props
 
 	return (
@@ -14,7 +16,7 @@ const BasicLayout = (props) => {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
-			<NavBar theCompany={theCompany} />
+			<NavBar theCompany={theCompany} theMaquinas={theMaquinas} />
 			<Container as='main'>{children}</Container>
 		</>
 	)
