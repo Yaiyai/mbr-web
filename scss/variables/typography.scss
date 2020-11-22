@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira:wght@300;400;600;700;900&display=swap');
+
+$font-text: 'Saira', sans-serif;
+$fontawesome: 'FontAwesome';
+
+$font-base: 1rem; // Assumes the browser default, typically `16px`
+$font-xl: ($font-base * 1.5); // 24px
+$font-lg: ($font-base * 1.25); // 20px
+$font-md: ($font-base * 1.125); // 18px
+$font-sm: ($font-base * 0.875); // 14px
+$font-xs: ($font-base * 0.75); // 12px
+
+$h1-size: $font-base * 2.5;
+$h2-size: $font-base * 2;
+$h3-size: $font-base * 1.75;
+$h4-size: $font-base * 1.5;
+$h5-size: $font-base * 1.25;
+$h6-size: $font-base;
+
+$text-light: 300;
+$text-normal: 400;
+$text-semibold: 700;
+$text-bold: 900;
+
+$titles-light: 300;
+$titles-normal: 400;
+$titles-semibold: 600;
+$titles-bold: 700;
+$titles-extrabold: 900;

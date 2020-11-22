@@ -1,0 +1,118 @@
+.desktop-nav {
+	background-color: #343434;
+	padding: $module 0;
+	.container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		> div {
+			display: flex;
+			align-items: center;
+		}
+		ul {
+			display: flex;
+			li {
+				a {
+					@include font-line-height($font-xs);
+					color: white;
+					&:hover {
+						color: map-get($theme-colors, 'secondary');
+						text-decoration: underline;
+					}
+				}
+			}
+			&.left {
+				a {
+					margin-right: $module;
+				}
+			}
+			&.right {
+				a {
+					margin-left: $module;
+				}
+			}
+		}
+		#nav-logo {
+			width: 320px;
+			height: 130px;
+			margin-bottom: 0;
+			margin-right: $module;
+			overflow: hidden;
+			@include transition-complete(height, 0.1s, ease-in);
+			@include transition-complete(width, 0.1s, ease-in);
+			img {
+				height: 100%;
+				object-fit: contain;
+				object-position: center;
+			}
+		}
+
+		.rrss-buttons {
+			margin-left: $module;
+			.rrss-icon {
+				margin-left: calc(#{$module} / 3);
+				color: white;
+				font-family: $fontawesome;
+				font-size: 20px;
+				&:hover {
+					color: map-get($theme-colors, 'secondary');
+					text-decoration: underline;
+				}
+
+				&.facebook-btn {
+					&::after {
+						content: '\f082';
+					}
+				}
+
+				&.twitter-btn {
+					&::after {
+						content: '\f081';
+					}
+				}
+
+				&.instagram-btn {
+					&::after {
+						content: '\f16d';
+					}
+				}
+
+				&.linkedin-btn {
+					&::after {
+						content: '\f08c';
+					}
+				}
+			}
+		}
+	}
+	&.scrolled {
+		position: fixed;
+		top: 0;
+		right: 0;
+		left: 0;
+		background-color: white;
+		border-bottom: 1px solid map-get($theme-colors, 'primary');
+		.container {
+			ul {
+				li {
+					a {
+						color: map-get($theme-colors, 'primary');
+						&:hover {
+							color: map-get($theme-colors, 'secondary');
+						}
+					}
+				}
+			}
+			#nav-logo {
+				width: 160px;
+				height: 65px;
+			}
+		}
+		.rrss-buttons {
+			.rrss-icon {
+				color: map-get($theme-colors, 'primary');
+			}
+		}
+	}
+}

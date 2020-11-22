@@ -1,0 +1,4 @@
+@mixin font-line-height($fontSize) {
+	font-size: $fontSize;
+	line-height: calc(#{$fontSize} + 8px);
+}

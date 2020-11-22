@@ -1,0 +1,10 @@
+@mixin transition-complete($property, $duration, $type) {
+	/*Chrome, Safari*/
+	-webkit-transition: $property $duration $type;
+	/*Firefox*/
+	-moz-transition: $property $duration $type;
+	/*Opera*/
+	-o-transition: $property $duration $type;
+	/*Standard*/
+	transition: $property $duration $type;
+}

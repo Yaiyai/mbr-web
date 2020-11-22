@@ -1,0 +1,13 @@
+$green: #1d612c;
+$orange: #efaf94;
+$grey: #e4e8eb;
+$theme-colors: (
+	'primary': $green,
+	'secondary': $orange,
+	'dark-primary': darken($green, 20%),
+	'light-primary': #4d8f56,
+	'grey': $grey,
+	'light-grey': #fafafa,
+	'dark-grey': darken($grey, 20%),
+	'text': #414141,
+);

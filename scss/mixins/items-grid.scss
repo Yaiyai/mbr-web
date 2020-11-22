@@ -1,0 +1,18 @@
+@mixin items-grid($number, $margin) {
+	// $number indicates number of items each row
+	// $margin items %, px or em
+	// Parent must have:
+	// display: flex;
+	// flex-wrap: wrap;
+
+	max-width: calc((100% / #{$number}) - (#{$margin} * (#{$number} - 1) / #{$number}));
+	min-width: calc((100% / #{$number}) - (#{$margin} * (#{$number} - 1) / #{$number}));
+	flex-grow: 1;
+
+	&:not(:nth-child(#{$number}n)) {
+		margin-right: $margin;
+	}
+
+	margin-bottom: $margin;
+	margin-right: 0;
+}

@@ -1,65 +1,47 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import { useEffect, useReducer, useRef } from 'react'
+import { CompanyContext } from '../context/companyContext'
+import { MaquinasContext } from '../context/maquinasContext'
+import BasicLayout from '../layouts/BasicLayout'
+import CompanyReducer from '../reducers/CompanyReducer'
+import MaquinasReducer from '../reducers/MaquinasReducer'
 
-export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+const Home = ({ theCompany, theMaquinas }) => {
+	const isMounted = useRef(true)
+	const [company] = useReducer(CompanyReducer, theCompany)
+	const [maquinas] = useReducer(MaquinasReducer, theMaquinas)
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+	useEffect(() => {
+		return () => {
+			isMounted.current = false
+		}
+	}, [])
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+	return (
+		<div>
+			<CompanyContext.Provider value={company}>
+				<Head>
+					<title>Mecánica Brañosera</title>
+				</Head>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+				<MaquinasContext.Provider value={maquinas}>
+					<BasicLayout>
+						<h1>estamos en la home</h1>
+					</BasicLayout>
+				</MaquinasContext.Provider>
+			</CompanyContext.Provider>
+		</div>
+	)
 }
+
+Home.getInitialProps = async () => {
+	const theURL = process.env.baseURL
+	const resCompany = await fetch(`${theURL}/company`)
+	const bodyCompany = await resCompany.json()
+	const resMaquinas = await fetch(`${theURL}/maquinaria`)
+	const bodyMaquinas = await resMaquinas.json()
+
+	return { theCompany: bodyCompany.company[0], theMaquinas: bodyMaquinas.data }
+}
+
+export default Home

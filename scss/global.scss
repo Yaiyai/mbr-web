@@ -1,0 +1,30 @@
+@import './index';
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: $font-text;
+	color: map-get($theme-colors, 'text');
+}
+
+main {
+	height: 2000px;
+}
+img {
+	display: block;
+	width: 100%;
+}
+ul {
+	margin: 0;
+	padding: 0;
+	li {
+		list-style-type: none;
+		a {
+			display: block;
+			text-decoration: none;
+		}
+	}
+}
