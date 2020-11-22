@@ -9,6 +9,9 @@ body {
 	font-family: $font-text;
 	color: map-get($theme-colors, 'text');
 }
+main {
+	padding: calc(#{$module} * 2) 0;
+}
 
 img {
 	display: block;
@@ -24,4 +27,11 @@ ul {
 			text-decoration: none;
 		}
 	}
+}
+p {
+	margin: 0;
+}
+small {
+	@include font-line-height($font-xs);
+	font-weight: $text-light;
 }

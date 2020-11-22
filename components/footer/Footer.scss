@@ -1,0 +1,73 @@
+footer {
+	background-color: map-get($theme-colors, 'dark-primary');
+	padding: calc(#{$module} * 2) 0;
+	color: white;
+	.navs {
+		display: flex;
+		justify-content: space-between;
+		font-weight: $text-light;
+		margin-bottom: $module;
+		p {
+			text-transform: uppercase;
+			position: relative;
+			margin-bottom: calc(#{$module} / 3);
+			@include font-line-height($font-sm);
+			&::after {
+				content: '';
+				position: absolute;
+				width: 20px;
+				height: 2px;
+				bottom: 0;
+				left: 0;
+				background-color: white;
+			}
+		}
+		a {
+			@include font-line-height($font-xs);
+			color: white;
+		}
+	}
+	.contact-area {
+		border-radius: 5px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: calc(#{$module} * 0.5);
+		background-color: white;
+		color: map-get($theme-colors, 'primary');
+		margin-bottom: $module;
+		.dots-box {
+			@include bg-dots();
+			flex-grow: 1;
+			height: 50px;
+		}
+		.rrss-buttons {
+			.rrss-icon {
+				margin-left: calc(#{$module} / 3);
+				color: map-get($theme-colors, 'primary');
+				&:hover {
+					color: map-get($theme-colors, 'secondary');
+				}
+				svg {
+					width: calc(#{$module} / 1);
+					height: calc(#{$module} / 1);
+				}
+			}
+		}
+	}
+	.logo-copy {
+		figure {
+			width: 135px;
+			height: 56px;
+			overflow: hidden;
+			img {
+				height: 100%;
+				object-fit: contain;
+				object-position: center;
+			}
+		}
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+}

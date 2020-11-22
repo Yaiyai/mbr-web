@@ -19,7 +19,7 @@ const MaquinaSelected = () => {
 			{thisMaquina && (
 				<BasicLayout>
 					<Head>
-						<title>Maquina {thisMaquina.name} || MBR</title>
+						<title>MBR || {thisMaquina.name} </title>
 					</Head>
 					<h1>maquina seleccionada {thisMaquina.name}</h1>
 				</BasicLayout>
