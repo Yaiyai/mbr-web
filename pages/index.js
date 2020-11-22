@@ -1,15 +1,13 @@
 import Head from 'next/head'
-import { useEffect, useReducer, useRef } from 'react'
-import { CompanyContext } from '../context/companyContext'
-import { MaquinasContext } from '../context/maquinasContext'
+import { useEffect, useRef } from 'react'
 import BasicLayout from '../layouts/BasicLayout'
-import CompanyReducer from '../reducers/CompanyReducer'
-import MaquinasReducer from '../reducers/MaquinasReducer'
 
-const Home = ({ theCompany, theMaquinas }) => {
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+library.add(fab)
+
+const Home = ({}) => {
 	const isMounted = useRef(true)
-	const [company] = useReducer(CompanyReducer, theCompany)
-	const [maquinas] = useReducer(MaquinasReducer, theMaquinas)
 
 	useEffect(() => {
 		return () => {
@@ -19,29 +17,15 @@ const Home = ({ theCompany, theMaquinas }) => {
 
 	return (
 		<div>
-			<CompanyContext.Provider value={company}>
+			<BasicLayout>
 				<Head>
-					<title>Mecánica Brañosera</title>
+					<title>Mecánica Brañosera || MBR </title>
 				</Head>
 
-				<MaquinasContext.Provider value={maquinas}>
-					<BasicLayout>
-						<h1>estamos en la home</h1>
-					</BasicLayout>
-				</MaquinasContext.Provider>
-			</CompanyContext.Provider>
+				<h1>estamos en la home</h1>
+			</BasicLayout>
 		</div>
 	)
-}
-
-Home.getInitialProps = async () => {
-	const theURL = process.env.baseURL
-	const resCompany = await fetch(`${theURL}/company`)
-	const bodyCompany = await resCompany.json()
-	const resMaquinas = await fetch(`${theURL}/maquinaria`)
-	const bodyMaquinas = await resMaquinas.json()
-
-	return { theCompany: bodyCompany.company[0], theMaquinas: bodyMaquinas.data }
 }
 
 export default Home

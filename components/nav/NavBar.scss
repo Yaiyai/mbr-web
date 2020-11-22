@@ -33,14 +33,18 @@
 				}
 			}
 		}
-		#nav-logo {
+		.nav-logo {
 			width: 320px;
 			height: 130px;
 			margin-bottom: 0;
 			margin-right: $module;
 			overflow: hidden;
-			@include transition-complete(height, 0.1s, ease-in);
-			@include transition-complete(width, 0.1s, ease-in);
+			&#main-logo {
+				display: none;
+			}
+			&#secondary-logo {
+				display: block;
+			}
 			img {
 				height: 100%;
 				object-fit: contain;
@@ -54,34 +58,12 @@
 				margin-left: calc(#{$module} / 3);
 				color: white;
 				font-family: $fontawesome;
-				font-size: 20px;
 				&:hover {
 					color: map-get($theme-colors, 'secondary');
-					text-decoration: underline;
 				}
-
-				&.facebook-btn {
-					&::after {
-						content: '\f082';
-					}
-				}
-
-				&.twitter-btn {
-					&::after {
-						content: '\f081';
-					}
-				}
-
-				&.instagram-btn {
-					&::after {
-						content: '\f16d';
-					}
-				}
-
-				&.linkedin-btn {
-					&::after {
-						content: '\f08c';
-					}
+				svg {
+					width: calc(#{$module} / 1.5);
+					height: calc(#{$module} / 1.5);
 				}
 			}
 		}
@@ -104,9 +86,15 @@
 					}
 				}
 			}
-			#nav-logo {
+			.nav-logo {
 				width: 160px;
 				height: 65px;
+			}
+			#main-logo {
+				display: block;
+			}
+			#secondary-logo {
+				display: none;
 			}
 		}
 		.rrss-buttons {

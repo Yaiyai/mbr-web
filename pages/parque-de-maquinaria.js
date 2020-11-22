@@ -1,13 +1,16 @@
 import Head from 'next/head'
 import React from 'react'
+import BasicLayout from '../layouts/BasicLayout'
 
 const ParqueDeMaquinaria = () => {
 	return (
 		<>
-			<Head>
-				<title>Parque de Maquinaria || MBR</title>
-			</Head>
-			<h1>hola soy el parque</h1>
+			<BasicLayout>
+				<Head>
+					<title>Parque de Maquinaria || MBR</title>
+				</Head>
+				<h1>parque</h1>
+			</BasicLayout>
 		</>
 	)
 }
