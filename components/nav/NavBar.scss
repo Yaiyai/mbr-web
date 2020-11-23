@@ -1,6 +1,10 @@
 .desktop-nav {
-	background-color: #343434;
 	padding: $module 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 10;
 	.container {
 		display: flex;
 		align-items: center;

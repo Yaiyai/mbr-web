@@ -41,7 +41,9 @@ const NavBar = ({ theCompany }) => {
 					</Link>
 					<ul className='left'>
 						<li>
-							<a href='#historia'>Historia</a>
+							<Link href='/#historia'>
+								<a>Historia</a>
+							</Link>
 						</li>
 						<li>
 							<a href='#instalaciones'>Instalaciones</a>

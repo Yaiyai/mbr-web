@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import React, { useContext } from 'react'
-import { MaquinasContext } from '../context/maquinasContext'
-import BasicLayout from '../layouts/BasicLayout'
+import { MaquinasContext } from '../../context/maquinasContext'
+import BasicLayout from '../../layouts/BasicLayout'
 
 const ParqueDeMaquinaria = () => {
 	const allMaquinas = useContext(MaquinasContext)

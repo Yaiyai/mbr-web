@@ -1,0 +1,43 @@
+header {
+	position: relative;
+	overflow: hidden;
+	padding-top: calc(#{$module} * 6);
+	height: calc(#{$module} * 36);
+	.headerbkg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		width: 100%;
+		height: 100%;
+	}
+	.container {
+		display: flex;
+		height: 100%;
+		.img-content {
+			width: calc((100% / 12) * 6);
+		}
+		.text-content {
+			width: calc((100% / 12) * 6);
+			color: white;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			height: 100%;
+
+			h1 {
+				display: block;
+				text-transform: uppercase;
+				letter-spacing: 8px;
+				font-size: 96px;
+				font-weight: $text-bold;
+			}
+			h2 {
+				font-size: 32px;
+				font-weight: $text-semibold;
+				letter-spacing: 2.67px;
+				line-height: 50px;
+			}
+		}
+	}
+}

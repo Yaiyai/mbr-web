@@ -9,9 +9,6 @@ body {
 	font-family: $font-text;
 	color: map-get($theme-colors, 'text');
 }
-main {
-	padding: calc(#{$module} * 2) 0;
-}
 
 img {
 	display: block;
