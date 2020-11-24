@@ -5,6 +5,7 @@ import BasicLayout from '../layouts/BasicLayout'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import Header from '../components/header/Header'
+import NavBar from '../components/nav/NavBar'
 library.add(fab)
 
 const Home = ({}) => {
@@ -22,6 +23,8 @@ const Home = ({}) => {
 				<Head>
 					<title>Mecánica Brañosera || MBR </title>
 				</Head>
+				<NavBar clase={'nav-index'} />
+
 				<Header />
 			</BasicLayout>
 		</div>

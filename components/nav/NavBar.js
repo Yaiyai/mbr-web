@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookSquare, faInstagramSquare, faLinkedin, faTwitterSquare } from '@fortawesome/free-brands-svg-icons'
 import { CompanyContext } from '../../context/companyContext'
 
-const NavBar = () => {
+const NavBar = ({ clase }) => {
 	const theCompany = useContext(CompanyContext)
 	const { mainLogo, secondaryLogo, twitter, facebook, linkedin, instagram } = theCompany
 	const theNav = useRef(true)
@@ -28,7 +28,7 @@ const NavBar = () => {
 	}, [])
 
 	return (
-		<nav ref={theNav} className='desktop-nav'>
+		<nav ref={theNav} className={`desktop-nav ${clase}`}>
 			<Container>
 				<div>
 					<Link href='/'>

@@ -4,6 +4,7 @@ import React, { useContext } from 'react'
 import { MaquinasContext } from '../../context/maquinasContext'
 import Container from 'react-bootstrap/Container'
 import BasicLayout from '../../layouts/BasicLayout'
+import NavBar from '../../components/nav/NavBar'
 
 const ParqueDeMaquinaria = () => {
 	const allMaquinas = useContext(MaquinasContext)
@@ -13,6 +14,8 @@ const ParqueDeMaquinaria = () => {
 				<Head>
 					<title>Parque de Maquinaria || MBR</title>
 				</Head>
+				<NavBar clase={'nav-normal'} />
+
 				<Container>
 					<h1>parque</h1>
 					{allMaquinas &&

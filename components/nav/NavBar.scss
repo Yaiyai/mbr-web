@@ -1,3 +1,6 @@
+main {
+	height: 1000px;
+}
 .desktop-nav {
 	padding: $module 0;
 	position: absolute;
@@ -5,6 +8,12 @@
 	left: 0;
 	right: 0;
 	z-index: 10;
+	&.nav-normal {
+		background-color: map-get($theme-colors, 'dark-primary');
+	}
+	&.nav-index {
+		background-color: transparent;
+	}
 	.container {
 		display: flex;
 		align-items: center;

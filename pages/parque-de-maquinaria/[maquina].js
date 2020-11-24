@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import BasicLayout from '../../layouts/BasicLayout'
 import Container from 'react-bootstrap/Container'
 import { MaquinasContext } from '../../context/maquinasContext'
+import NavBar from '../../components/nav/NavBar'
 
 const MaquinaSelected = () => {
 	const allMaquinas = useContext(MaquinasContext)
@@ -22,6 +23,8 @@ const MaquinaSelected = () => {
 					<Head>
 						<title>MBR || {thisMaquina.name} </title>
 					</Head>
+					<NavBar clase={'nav-normal'} />
+
 					<Container>
 						<h1>maquina seleccionada {thisMaquina.name}</h1>
 					</Container>
