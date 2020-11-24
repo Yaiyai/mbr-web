@@ -2,41 +2,93 @@ header {
 	position: relative;
 	overflow: hidden;
 	padding-top: calc(#{$module} * 6);
-	height: calc(#{$module} * 36);
-	.headerbkg {
+	height: 100vh;
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	.special-buttons {
 		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: -1;
-		width: 100%;
-		height: 100%;
+		right: 0;
+		bottom: 0;
+		width: calc((100% / 12) * 6);
+		display: flex;
+		#instalaciones-btn {
+			width: calc((100% / 12) * 5);
+			height: 100%;
+			background-color: white;
+			color: map-get($theme-colors, 'primary');
+			text-align: center;
+			vertical-align: center;
+			text-transform: uppercase;
+			font-size: $font-base;
+			font-weight: $text-bold;
+			letter-spacing: 1.33px;
+			line-height: 25px;
+			padding: calc(#{$module} * 2) 0;
+		}
+		#maquinaria-btn {
+			font-size: $font-base;
+			font-weight: $text-bold;
+			letter-spacing: 1.33px;
+			line-height: 25px;
+			padding: calc(#{$module} * 2) 0;
+			width: calc((100% / 12) * 7);
+			height: 100%;
+			background-color: map-get($theme-colors, 'primary');
+			color: white;
+			text-align: center;
+			vertical-align: center;
+			text-transform: uppercase;
+		}
 	}
+
 	.container {
 		display: flex;
 		height: 100%;
 		.img-content {
+			position: relative;
 			width: calc((100% / 12) * 6);
+			figure {
+				position: absolute;
+				top: 0;
+				left: calc(#{$module} * (-17));
+				overflow: hidden;
+				width: 120%;
+				height: 100%;
+				img {
+					height: 100%;
+					object-fit: contain;
+					object-position: center;
+				}
+			}
 		}
-		.text-content {
+		.right-side {
 			width: calc((100% / 12) * 6);
-			color: white;
 			display: flex;
 			flex-direction: column;
-			justify-content: center;
-			height: 100%;
+			justify-content: space-between;
+			.text-content {
+				width: 100%;
+				color: white;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				height: 100%;
 
-			h1 {
-				display: block;
-				text-transform: uppercase;
-				letter-spacing: 8px;
-				font-size: 96px;
-				font-weight: $text-bold;
-			}
-			h2 {
-				font-size: 32px;
-				font-weight: $text-semibold;
-				letter-spacing: 2.67px;
-				line-height: 50px;
+				h1 {
+					display: block;
+					text-transform: uppercase;
+					letter-spacing: 8px;
+					font-size: 96px;
+					font-weight: $text-bold;
+				}
+				h2 {
+					font-size: 32px;
+					font-weight: $text-semibold;
+					letter-spacing: 2.67px;
+					line-height: 50px;
+				}
 			}
 		}
 	}

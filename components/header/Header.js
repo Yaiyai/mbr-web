@@ -1,11 +1,13 @@
 import React, { useRef } from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
+import Link from 'next/link'
 import Container from 'react-bootstrap/Container'
 
 const Header = () => {
 	const [header, setHeader] = useState()
 	const isMounted = useRef(true)
+
 	const headerBKG = 'https://res.cloudinary.com/mbr-app/image/upload/v1606160975/header_wvjrzj.jpg'
 	useEffect(() => {
 		return () => {
@@ -27,21 +29,28 @@ const Header = () => {
 	return (
 		<>
 			{header && (
-				<header>
+				<header style={{ backgroundImage: `url(${headerBKG})` }}>
 					<Container>
 						<article className='img-content'>
 							<figure>
 								<img src={header.uniqueImage} alt='' />
 							</figure>
 						</article>
-						<article className='text-content'>
-							<h1>{header.title}</h1>
-							<h2>{header.subtitle}</h2>
-						</article>
+						<div className='right-side'>
+							<article className='text-content'>
+								<h1>{header.title}</h1>
+								<h2>{header.subtitle}</h2>
+							</article>
+						</div>
 					</Container>
-					<div className='headerbkg'>
-						<img src={headerBKG} alt='' />
-					</div>
+					<article className='special-buttons'>
+						<Link href='/#instalaciones'>
+							<a id='instalaciones-btn'>Instalaciones</a>
+						</Link>
+						<Link href='/parque-de-maquinaria'>
+							<a id='maquinaria-btn'>Maquinaria</a>
+						</Link>
+					</article>
 				</header>
 			)}
 		</>

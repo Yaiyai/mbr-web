@@ -32,3 +32,22 @@ small {
 	@include font-line-height($font-xs);
 	font-weight: $text-light;
 }
+a {
+	display: block;
+}
+
+.container {
+	max-width: 1400px;
+	@include breakpoint(xl) {
+		max-width: 1140px;
+	}
+	@include breakpoint(lg) {
+		max-width: 960px;
+	}
+	@include breakpoint(md) {
+		max-width: 700px;
+	}
+	@include breakpoint(sm-down) {
+		max-width: 540px;
+	}
+}

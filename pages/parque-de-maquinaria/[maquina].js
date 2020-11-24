@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import BasicLayout from '../../layouts/BasicLayout'
+import Container from 'react-bootstrap/Container'
 import { MaquinasContext } from '../../context/maquinasContext'
 
 const MaquinaSelected = () => {
@@ -21,7 +22,9 @@ const MaquinaSelected = () => {
 					<Head>
 						<title>MBR || {thisMaquina.name} </title>
 					</Head>
-					<h1>maquina seleccionada {thisMaquina.name}</h1>
+					<Container>
+						<h1>maquina seleccionada {thisMaquina.name}</h1>
+					</Container>
 				</BasicLayout>
 			)}
 		</>

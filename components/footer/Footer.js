@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Link from 'next/link'
 import Container from 'react-bootstrap/Container'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookSquare, faInstagramSquare, faLinkedin, faTwitterSquare } from '@fortawesome/free-brands-svg-icons'
+import { CompanyContext } from '../../context/companyContext'
 
-const Footer = ({ theCompany }) => {
+const Footer = () => {
+	const theCompany = useContext(CompanyContext)
 	const { secondaryLogo, instagram, twitter, facebook, linkedin, phone, address, name } = theCompany
 
 	return (
