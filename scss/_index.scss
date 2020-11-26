@@ -4,6 +4,9 @@
 //Mixins
 @import './mixins/mixins';
 
+//Elements
+@import './elements/elements.scss';
+
 //Layouts
 @import './../layouts/BasicLayout/BasicLayout.scss';
 
@@ -11,3 +14,6 @@
 @import './../components/nav/NavBar.scss';
 @import './../components/footer/Footer.scss';
 @import './../components/header/Header.scss';
+
+//Pages
+@import './../pages/parque-de-maquinaria/maquinas.scss';

@@ -17,13 +17,25 @@ const ParqueDeMaquinaria = ({ theMaquinas }) => {
 				<NavBar clase={'nav-normal'} />
 
 				<Container>
-					<h1>parque</h1>
-					{allMaquinas &&
-						allMaquinas.map((maq) => (
-							<Link key={maq._id} href={`/parque-de-maquinaria/${maq._id}`}>
-								<button>{maq.name}</button>
-							</Link>
-						))}
+					{allMaquinas && (
+						<section className='all-maquinas'>
+							{allMaquinas.map((maq) => (
+								<article key={maq._id} className='each-maquina'>
+									<div className='inner'>
+										<figure className='left'>
+											<img src={maq.image} alt={maq.name} />
+										</figure>
+										<div className='right'>
+											<p className='maquina-name'>{maq.name}</p>
+											<Link href={`/parque-de-maquinaria/${maq._id}`}>
+												<a className='my-btn secondary mini'>Ver máquina</a>
+											</Link>
+										</div>
+									</div>
+								</article>
+							))}
+						</section>
+					)}
 				</Container>
 			</BasicLayout>
 		</>
