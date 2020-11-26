@@ -1,20 +1,23 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import BasicLayout from '../../layouts/BasicLayout'
 import Container from 'react-bootstrap/Container'
-import { MaquinasContext } from '../../context/maquinasContext'
 import NavBar from '../../components/nav/NavBar'
+import { getMaquinas, getMaquinasById } from '../../components/api/maquinas'
 
-const MaquinaSelected = () => {
-	const allMaquinas = useContext(MaquinasContext)
+const MaquinaSelected = ({ theMaquina }) => {
+	const isMounted = useRef(true)
 	const [thisMaquina, setthisMaquina] = useState()
-	const router = useRouter()
-	const { maquina } = router.query
 
 	useEffect(() => {
-		setthisMaquina(allMaquinas.find((maq) => maq.name === maquina))
-	}, [])
+		if (isMounted.current) {
+			setthisMaquina(theMaquina)
+		}
+		return () => {
+			isMounted.current = false
+		}
+	}, [thisMaquina])
 
 	return (
 		<>
@@ -32,6 +35,27 @@ const MaquinaSelected = () => {
 			)}
 		</>
 	)
+}
+
+export const getStaticPaths = async () => {
+	const theMaquinas = await getMaquinas()
+	return {
+		paths: theMaquinas.map((maq) => {
+			return {
+				params: {
+					maquina: maq._id,
+				},
+			}
+		}),
+
+		fallback: false,
+	}
+}
+
+export const getStaticProps = async ({ params }) => {
+	const { maquina } = params
+	const theMaquina = await getMaquinasById(maquina)
+	return { props: { theMaquina } }
 }
 
 export default MaquinaSelected

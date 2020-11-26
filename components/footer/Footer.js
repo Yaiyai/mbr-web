@@ -1,13 +1,28 @@
-import React, { useContext } from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Container from 'react-bootstrap/Container'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookSquare, faInstagramSquare, faLinkedin, faTwitterSquare } from '@fortawesome/free-brands-svg-icons'
-import { CompanyContext } from '../../context/companyContext'
+import { getCompany } from '../api/company'
+import { useRef } from 'react'
 
 const Footer = () => {
-	const theCompany = useContext(CompanyContext)
-	const { secondaryLogo, instagram, twitter, facebook, linkedin, phone, address, name } = theCompany
+	const isMounted = useRef(true)
+	const [footerCompany, setTheFooterCompany] = useState()
+
+	const fetchCompany = async () => {
+		const companyFetched = await getCompany()
+		setTheFooterCompany(companyFetched)
+	}
+
+	useEffect(() => {
+		if (isMounted.current) {
+			fetchCompany()
+		}
+		return () => {
+			isMounted.current = false
+		}
+	}, [footerCompany])
 
 	return (
 		<footer>
@@ -60,44 +75,48 @@ const Footer = () => {
 						</ul>
 					</div>
 				</article>
-				<article className='contact-area'>
-					<div className='contact'>
-						<p>
-							{phone} &middot; {address}
-						</p>
-					</div>
-					<div className='dots-box'></div>
-					{(twitter || facebook || linkedin || instagram) && (
-						<ul className='rrss-buttons'>
-							{facebook && (
-								<a href={facebook} className='rrss-icon' target='_blank'>
-									<FontAwesomeIcon icon={faFacebookSquare} />
-								</a>
+				{footerCompany && (
+					<>
+						<article className='contact-area'>
+							<div className='contact'>
+								<p>
+									{footerCompany.phone} &middot; {footerCompany.address}
+								</p>
+							</div>
+							<div className='dots-box'></div>
+							{(footerCompany.twitter || footerCompany.facebook || footerCompany.linkedin || footerCompany.instagram) && (
+								<ul className='rrss-buttons'>
+									{footerCompany.facebook && (
+										<a href={footerCompany.facebook} className='rrss-icon' target='_blank'>
+											<FontAwesomeIcon icon={faFacebookSquare} />
+										</a>
+									)}
+									{footerCompany.twitter && (
+										<a href={footerCompany.twitter} className='rrss-icon' target='_blank'>
+											<FontAwesomeIcon icon={faTwitterSquare} />
+										</a>
+									)}
+									{footerCompany.instagram && (
+										<a href={footerCompany.instagram} className='rrss-icon' target='_blank'>
+											<FontAwesomeIcon icon={faInstagramSquare} />
+										</a>
+									)}
+									{footerCompany.linkedin && (
+										<a href={footerCompany.linkedin} className='rrss-icon' target='_blank'>
+											<FontAwesomeIcon icon={faLinkedin} />
+										</a>
+									)}
+								</ul>
 							)}
-							{twitter && (
-								<a href={twitter} className='rrss-icon' target='_blank'>
-									<FontAwesomeIcon icon={faTwitterSquare} />
-								</a>
-							)}
-							{instagram && (
-								<a href={instagram} className='rrss-icon' target='_blank'>
-									<FontAwesomeIcon icon={faInstagramSquare} />
-								</a>
-							)}
-							{linkedin && (
-								<a href={linkedin} className='rrss-icon' target='_blank'>
-									<FontAwesomeIcon icon={faLinkedin} />
-								</a>
-							)}
-						</ul>
-					)}
-				</article>
-				<article className='logo-copy'>
-					<figure>
-						<img src={secondaryLogo} alt='' />
-					</figure>
-					<small>&copy; {name}</small>
-				</article>
+						</article>
+						<article className='logo-copy'>
+							<figure>
+								<img src={footerCompany.secondaryLogo} alt='' />
+							</figure>
+							<small>&copy; {footerCompany.name}</small>
+						</article>
+					</>
+				)}
 			</Container>
 		</footer>
 	)
