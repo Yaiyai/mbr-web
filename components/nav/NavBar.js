@@ -7,7 +7,7 @@ import { getCompany } from '../api/company'
 
 const NavBar = ({ clase }) => {
 	const isMounted = useRef(true)
-	const theNav = useRef(true)
+	const theNav = useRef()
 	const [theCompany, setTheCompany] = useState()
 
 	const fetchCompany = async () => {
@@ -63,10 +63,14 @@ const NavBar = ({ clase }) => {
 								</Link>
 							</li>
 							<li>
-								<a href='#instalaciones'>Instalaciones</a>
+								<Link href='/#instalaciones'>
+									<a>Instalaciones</a>
+								</Link>
 							</li>
 							<li>
-								<a href='#trabajos'>Trabajos</a>
+								<Link href='/#maquinaria'>
+									<a>Maquinaria</a>
+								</Link>
 							</li>
 							<li>
 								<Link href='/parque-de-maquinaria'>
