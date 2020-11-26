@@ -9,6 +9,7 @@ const Header = () => {
 	const isMounted = useRef(true)
 
 	const headerBKG = 'https://res.cloudinary.com/mbr-app/image/upload/v1606160975/header_wvjrzj.jpg'
+
 	useEffect(() => {
 		return () => {
 			isMounted.current = false

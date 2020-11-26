@@ -1,6 +1,8 @@
 .all-maquinas {
 	display: flex;
 	flex-wrap: wrap;
+	padding-bottom: calc(#{$module} * 4);
+
 	.each-maquina {
 		@include items-grid(2, $module);
 		height: calc(#{$module} * 10);
@@ -37,6 +39,29 @@
 				}
 				.my-btn {
 					align-self: flex-end;
+				}
+			}
+		}
+	}
+}
+
+.maquina-selected {
+	display: flex;
+	padding-bottom: calc(#{$module} * 4);
+	align-items: center;
+
+	.left {
+		width: calc((100% / 12) * 6);
+	}
+	.right {
+		width: calc((100% / 12) * 6);
+		.features {
+			padding-left: calc(#{$module} * 2);
+			li {
+				margin-bottom: calc(#{$module} * 1);
+				svg {
+					color: map-get($theme-colors, 'primary');
+					margin-right: calc(#{$module} / 3);
 				}
 			}
 		}
