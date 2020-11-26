@@ -1,0 +1,23 @@
+.page-header {
+	margin-top: 175px;
+	padding: calc(#{$module} * 4) 0;
+	height: auto;
+	margin-bottom: calc(#{$module} * 4);
+	backdrop-filter: invert(0.8);
+	position: relative;
+	background-color: map-get($theme-colors, 'grey');
+	.container {
+		display: flex;
+		justify-content: center;
+		h2 {
+			display: block;
+			text-align: center;
+			@include font-line-height($h1-size);
+			color: white;
+			text-shadow: 1px 0px 0px map-get($theme-colors, 'primary');
+			text-transform: uppercase;
+			letter-spacing: 4px;
+			font-weight: $text-bold;
+		}
+	}
+}

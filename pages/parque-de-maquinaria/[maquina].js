@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
 import BasicLayout from '../../layouts/BasicLayout'
-import Container from 'react-bootstrap/Container'
+import { faCheckCircle, faAngleDoubleLeft } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import NavBar from '../../components/nav/NavBar'
 import { getMaquinas, getMaquinasById } from '../../components/api/maquinas'
+import { PageHeader } from '../../components/page-header/PageHeader'
+import Link from 'next/link'
 
 const MaquinaSelected = ({ theMaquina }) => {
 	const isMounted = useRef(true)
@@ -27,10 +29,32 @@ const MaquinaSelected = ({ theMaquina }) => {
 						<title>MBR || {thisMaquina.name} </title>
 					</Head>
 					<NavBar clase={'nav-normal'} />
+					<PageHeader title={thisMaquina.name} />
 
-					<Container>
-						<h1>maquina seleccionada {thisMaquina.name}</h1>
-					</Container>
+					<section className='maquina-selected container'>
+						<div className='left'>
+							<Link href='/parque-de-maquinaria'>
+								<a className='my-btn-back'>
+									{' '}
+									<FontAwesomeIcon icon={faAngleDoubleLeft} /> Volver
+								</a>
+							</Link>
+							<figure>
+								<img src={thisMaquina.image} alt={thisMaquina.name} />
+							</figure>
+						</div>
+						<div className='right'>
+							<ul className='features'>
+								{thisMaquina.features.map((ft, idx) => (
+									<li key={idx}>
+										{' '}
+										<FontAwesomeIcon icon={faCheckCircle} />
+										{ft}{' '}
+									</li>
+								))}
+							</ul>
+						</div>
+					</section>
 				</BasicLayout>
 			)}
 		</>

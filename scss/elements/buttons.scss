@@ -1,0 +1,70 @@
+*[class^='my-btn'] {
+	&:focus,
+	&:active {
+		outline: 0;
+		box-shadow: none;
+	}
+}
+
+.my-btn {
+	font-weight: $text-semibold;
+	font-size: $font-sm;
+	background-color: map-get($theme-colors, 'light-primary');
+	border: 1px solid map-get($theme-colors, 'light-primary');
+	color: white;
+	padding: calc(#{$module} / 3) calc(#{$module} / 2);
+	text-transform: uppercase;
+
+	&:hover {
+		border: 1px solid map-get($theme-colors, 'primary');
+		background-color: map-get($theme-colors, 'primary');
+		color: white;
+		text-decoration: none;
+	}
+	&.secondary {
+		background-color: white;
+		color: map-get($theme-colors, 'light-primary');
+		border: 1px solid map-get($theme-colors, 'light-primary');
+		&:hover {
+			color: map-get($theme-colors, 'secondary');
+			border: 1px solid map-get($theme-colors, 'secondary');
+		}
+	}
+	&.third {
+		background-color: white;
+		color: map-get($theme-colors, 'secondary');
+		border: 1px solid map-get($theme-colors, 'secondary');
+		&:hover {
+			color: map-get($theme-colors, 'primary');
+			border: 1px solid map-get($theme-colors, 'primary');
+		}
+	}
+	&.mini {
+		font-size: 10px;
+		padding: calc(#{$module} / 6) calc(#{$module} / 4);
+	}
+}
+
+.my-btn-back {
+	color: map-get($theme-colors, 'primary');
+	text-transform: uppercase;
+	font-size: $font-xs;
+
+	&::before {
+		font-family: $fontawesome;
+		color: map-get($theme-colors, 'primary');
+		margin-right: calc(#{$module} / 6);
+	}
+}
+
+.my-btn-more {
+	color: map-get($theme-colors, 'buttons');
+	text-transform: uppercase;
+	font-size: $font-xs;
+
+	&::after {
+		font-family: $fontawesome;
+		color: map-get($theme-colors, 'buttons');
+		margin-left: calc(#{$module} / 6);
+	}
+}
