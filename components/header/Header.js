@@ -4,7 +4,8 @@ import { useState } from 'react'
 import Link from 'next/link'
 import Container from 'react-bootstrap/Container'
 
-const Header = () => {
+const Header = ({ sections }) => {
+	const [allSections] = useState(sections)
 	const [header, setHeader] = useState()
 	const isMounted = useRef(true)
 
@@ -17,13 +18,9 @@ const Header = () => {
 	}, [])
 
 	useEffect(() => {
-		const theURL = process.env.baseURL
 		const sectionID = '5fb107a0a89ab807f04df010'
 		if (isMounted.current) {
-			fetch(`${theURL}/section/${sectionID}`)
-				.then((data) => data.json())
-				.then((data) => setHeader(data.section))
-				.catch((err) => console.log(err))
+			setHeader(allSections?.find((elm) => elm._id === sectionID))
 		}
 	}, [])
 

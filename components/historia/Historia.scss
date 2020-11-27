@@ -1,0 +1,65 @@
+.historia {
+	padding: calc(#{$module} * 6) 0;
+	position: relative;
+	&::after {
+		content: '';
+		position: absolute;
+		width: calc((100% / 12) * 6);
+		height: 100%;
+		top: 0;
+		left: 0;
+		@include bg-dots();
+	}
+	.container {
+		display: flex;
+		.left,
+		.right {
+			padding: 0 $module;
+			width: calc((100% / 12) * 6);
+		}
+		.left {
+			.swiper-container {
+				height: 100%;
+				width: 100%;
+				.swiper-wrapper {
+					height: 100%;
+					width: 100%;
+					.swiper-slide {
+						height: 100%;
+						width: 100%;
+						overflow: hidden;
+						img {
+							height: 100%;
+							object-fit: cover;
+							object-position: center;
+						}
+					}
+				}
+			}
+		}
+		.right {
+			.subtitle {
+				text-transform: uppercase;
+				color: map-get($theme-colors, 'primary');
+				@include font-line-height($font-lg);
+				font-weight: $text-semibold;
+			}
+			h2 {
+				color: map-get($theme-colors, 'primary');
+				@include font-line-height(64px);
+				font-weight: $text-bold;
+				position: relative;
+				margin-bottom: calc(#{$module} * 2);
+				&::after {
+					content: '';
+					position: absolute;
+					width: 100px;
+					height: 4px;
+					bottom: 0;
+					left: 0;
+					background-color: map-get($theme-colors, 'secondary');
+				}
+			}
+		}
+	}
+}
