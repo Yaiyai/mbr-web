@@ -33,8 +33,20 @@ h1 {
 	letter-spacing: 6px;
 }
 h2 {
-	font-size: ($h2-size);
-	letter-spacing: 6px;
+	color: map-get($theme-colors, 'primary');
+	@include font-line-height(64px);
+	font-weight: $text-bold;
+	position: relative;
+	margin-bottom: calc(#{$module} * 2);
+	&::after {
+		content: '';
+		position: absolute;
+		width: 100px;
+		height: 4px;
+		bottom: 0;
+		left: 0;
+		background-color: map-get($theme-colors, 'secondary');
+	}
 }
 h3 {
 	font-size: ($h3-size);

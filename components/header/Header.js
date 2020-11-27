@@ -37,7 +37,7 @@ const Header = ({ sections }) => {
 						<div className='right-side'>
 							<article className='text-content'>
 								<h1>{header.title}</h1>
-								<h2>{header.subtitle}</h2>
+								<h2 className='header-subtitle'>{header.subtitle}</h2>
 							</article>
 						</div>
 					</Container>

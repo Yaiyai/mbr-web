@@ -68,6 +68,11 @@ const NavBar = ({ clase }) => {
 								</Link>
 							</li>
 							<li>
+								<Link href='/#trabajos'>
+									<a>Trabajos</a>
+								</Link>
+							</li>
+							<li>
 								<Link href='/parque-de-maquinaria' as='/parque-de-maquinaria'>
 									<a>Maquinaria</a>
 								</Link>

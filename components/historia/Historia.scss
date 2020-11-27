@@ -44,22 +44,6 @@
 				@include font-line-height($font-lg);
 				font-weight: $text-semibold;
 			}
-			h2 {
-				color: map-get($theme-colors, 'primary');
-				@include font-line-height(64px);
-				font-weight: $text-bold;
-				position: relative;
-				margin-bottom: calc(#{$module} * 2);
-				&::after {
-					content: '';
-					position: absolute;
-					width: 100px;
-					height: 4px;
-					bottom: 0;
-					left: 0;
-					background-color: map-get($theme-colors, 'secondary');
-				}
-			}
 		}
 	}
 }

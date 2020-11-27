@@ -6,9 +6,6 @@ SwiperCore.use([Autoplay, Pagination])
 
 import { faCheckCircle, faAngleDoubleLeft } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-{
-	/* <FontAwesomeIcon icon={faCheckCircle} /> */
-}
 
 export const Instalaciones = ({ sections }) => {
 	const isMounted = useRef(true)

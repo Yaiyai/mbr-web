@@ -7,6 +7,7 @@ import NavBar from '../components/nav/NavBar'
 import { Historia } from '../components/historia/Historia'
 import { getSections } from '../components/api/section'
 import { Instalaciones } from '../components/instalaciones/Instalaciones'
+import { Trabajos } from '../components/trabajos/Trabajos'
 
 const Home = ({ allSections }) => {
 	const isMounted = useRef(true)
@@ -29,6 +30,7 @@ const Home = ({ allSections }) => {
 				<Header sections={sections} />
 				<Historia sections={sections} />
 				<Instalaciones sections={sections} />
+				<Trabajos sections={sections} />
 			</BasicLayout>
 		</div>
 	)

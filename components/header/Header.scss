@@ -83,11 +83,15 @@ header {
 					font-size: 96px;
 					font-weight: $text-bold;
 				}
-				h2 {
+				.header-subtitle {
+					color: white;
 					font-size: 32px;
 					font-weight: $text-semibold;
 					letter-spacing: 2.67px;
 					line-height: 50px;
+					&::after {
+						display: none;
+					}
 				}
 			}
 		}
