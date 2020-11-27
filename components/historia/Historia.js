@@ -21,12 +21,12 @@ export const Historia = ({ sections }) => {
 		if (isMounted.current) {
 			setHistoria(allSections?.find((elm) => elm._id === sectionID))
 		}
-	}, [])
+	}, [historia])
 
 	return (
 		<>
 			{historia && (
-				<section className='historia'>
+				<section id='historia' className='historia'>
 					<div className='container'>
 						<div className='left'>
 							<Swiper

@@ -60,6 +60,8 @@
 			li {
 				margin-bottom: calc(#{$module} * 1);
 				svg {
+					width: 10px;
+					height: 10px;
 					color: map-get($theme-colors, 'primary');
 					margin-right: calc(#{$module} / 3);
 				}
