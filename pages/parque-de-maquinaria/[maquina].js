@@ -3,10 +3,10 @@ import Head from 'next/head'
 import BasicLayout from '../../layouts/BasicLayout'
 import { faCheckCircle, faAngleDoubleLeft } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import NavBar from '../../components/nav/NavBar'
 import { getMaquinas, getMaquinasById } from '../../components/api/maquinas'
 import { PageHeader } from '../../components/page-header/PageHeader'
 import Link from 'next/link'
+import { getCompany } from '../../components/api/company'
 
 const MaquinaSelected = ({ theMaquina }) => {
 	const isMounted = useRef(true)
@@ -24,11 +24,10 @@ const MaquinaSelected = ({ theMaquina }) => {
 	return (
 		<>
 			{thisMaquina && (
-				<BasicLayout>
+				<BasicLayout location={'parque'}>
 					<Head>
 						<title>MBR || {thisMaquina.name} </title>
 					</Head>
-					<NavBar clase={'nav-normal'} />
 					<PageHeader title={thisMaquina.name} />
 
 					<section className='maquina-selected container'>
@@ -78,8 +77,9 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }) => {
 	const { maquina } = params
+	const companyFetched = await getCompany()
 	const theMaquina = await getMaquinasById(maquina)
-	return { props: { theMaquina } }
+	return { props: { theMaquina, companyFetched } }
 }
 
 export default MaquinaSelected

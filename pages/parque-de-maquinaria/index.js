@@ -3,21 +3,20 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 import Container from 'react-bootstrap/Container'
 import BasicLayout from '../../layouts/BasicLayout'
-import NavBar from '../../components/nav/NavBar'
 import { getMaquinas } from '../../components/api/maquinas'
 import { getThisSection } from '../../components/api/section'
 import { PageHeader } from '../../components/page-header/PageHeader'
+import { getCompany } from '../../components/api/company'
 
 const ParqueDeMaquinaria = ({ theMaquinas, thisSection }) => {
 	const [allMaquinas] = useState(theMaquinas)
 	const [section] = useState(thisSection)
 	return (
 		<>
-			<BasicLayout>
+			<BasicLayout location={'parque'}>
 				<Head>
 					<title>Parque de Maquinaria || MBR</title>
 				</Head>
-				<NavBar clase={'nav-normal'} />
 				<PageHeader title={section.title} bkg={section.uniqueImage} />
 				<Container>
 					{allMaquinas && (
@@ -46,9 +45,10 @@ const ParqueDeMaquinaria = ({ theMaquinas, thisSection }) => {
 }
 
 export const getStaticProps = async () => {
+	const companyFetched = await getCompany()
 	const theMaquinas = await getMaquinas()
 	const thisSection = await getThisSection('5fb15988fb855731d4d459df')
-	return { props: { theMaquinas, thisSection } }
+	return { props: { theMaquinas, thisSection, companyFetched } }
 }
 
 export default ParqueDeMaquinaria

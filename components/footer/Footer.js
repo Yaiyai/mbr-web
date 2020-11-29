@@ -3,26 +3,18 @@ import Link from 'next/link'
 import Container from 'react-bootstrap/Container'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookSquare, faInstagramSquare, faLinkedin, faTwitterSquare } from '@fortawesome/free-brands-svg-icons'
-import { getCompany } from '../api/company'
+
 import { useRef } from 'react'
 
-const Footer = () => {
+const Footer = ({ company }) => {
 	const isMounted = useRef(true)
-	const [footerCompany, setTheFooterCompany] = useState()
-
-	const fetchCompany = async () => {
-		const companyFetched = await getCompany()
-		setTheFooterCompany(companyFetched)
-	}
+	const [footerCompany] = useState(company)
 
 	useEffect(() => {
-		if (isMounted.current) {
-			fetchCompany()
-		}
 		return () => {
 			isMounted.current = false
 		}
-	}, [footerCompany])
+	}, [])
 
 	return (
 		<footer>
