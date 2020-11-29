@@ -7,13 +7,13 @@ export const PageHeader = ({ title, bkg }) => {
 			{bkg ? (
 				<header style={{ backgroundImage: `url(${bkg})` }} className='page-header'>
 					<div className='container'>
-						<h2>{title}</h2>
+						<h2 className='header-subtitle'>{title}</h2>
 					</div>
 				</header>
 			) : (
 				<header style={{ backgroundImage: `url(${headerBKG})` }} className='page-header'>
 					<div className='container'>
-						<h2>{title}</h2>
+						<h2 className='header-subtitle'>{title}</h2>
 					</div>
 				</header>
 			)}

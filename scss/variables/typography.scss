@@ -27,3 +27,45 @@ $titles-normal: 400;
 $titles-semibold: 600;
 $titles-bold: 700;
 $titles-extrabold: 900;
+
+h1 {
+	font-size: ($h1-size);
+	letter-spacing: 6px;
+}
+h2 {
+	color: map-get($theme-colors, 'primary');
+	@include font-line-height(64px);
+	font-weight: $text-bold;
+	position: relative;
+	margin-bottom: calc(#{$module} * 2);
+	&::after {
+		content: '';
+		position: absolute;
+		width: 100px;
+		height: 4px;
+		bottom: 0;
+		left: 0;
+		background-color: map-get($theme-colors, 'secondary');
+	}
+}
+h3 {
+	font-size: ($h3-size);
+	letter-spacing: 6px;
+}
+h4 {
+	font-size: ($h4-size);
+	letter-spacing: 6px;
+}
+h6 {
+	font-size: ($h6-size);
+	letter-spacing: 6px;
+}
+h5 {
+	font-size: ($h5-size);
+	letter-spacing: 6px;
+}
+p {
+	font-size: ($font-base);
+	letter-spacing: 1.33px;
+	font-weight: $text-light;
+}

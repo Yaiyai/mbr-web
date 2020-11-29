@@ -1,8 +1,8 @@
-//Variables
-@import './variables/variables';
-
 //Mixins
 @import './mixins/mixins';
+
+//Variables
+@import './variables/variables';
 
 //Elements
 @import './elements/elements.scss';
@@ -15,6 +15,9 @@
 @import './../components/footer/Footer.scss';
 @import './../components/page-header/PageHeader.scss';
 @import './../components/header/Header.scss';
+@import './../components/historia/Historia.scss';
+@import './../components/instalaciones/Instalaciones.scss';
+@import './../components/trabajos/Trabajos.scss';
 
 //Pages
 @import './../pages/parque-de-maquinaria/maquinas.scss';

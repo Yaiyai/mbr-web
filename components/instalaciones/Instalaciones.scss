@@ -1,0 +1,62 @@
+.instalaciones {
+	padding: calc(#{$module} * 2) 0 calc(#{$module} * 6);
+	position: relative;
+	&::after {
+		content: '';
+		position: absolute;
+		width: calc((100% / 12) * 6);
+		height: 100%;
+		top: 0;
+		left: 0;
+		@include bg-dots();
+		z-index: -1;
+	}
+	.swiper-container {
+		height: calc(#{$module} * 30);
+		width: 100%;
+		.swiper-wrapper {
+			height: 100%;
+			width: 100%;
+			.swiper-slide {
+				height: 100%;
+				width: 100%;
+				overflow: hidden;
+				img {
+					height: 100%;
+					object-fit: cover;
+					object-position: center;
+				}
+			}
+		}
+	}
+	h2 {
+		background-color: white;
+		width: calc((100% / 12) * 5.5);
+		padding: $module calc(#{$module});
+	}
+	.plantas {
+		display: flex;
+		justify-content: space-between;
+		padding-top: calc(#{$module} * 4);
+		.left,
+		.right {
+			width: calc((100% / 12) * 5);
+			background-color: white;
+			padding: calc(#{$module} * 2);
+			svg {
+				margin-right: calc(#{$module} / 3);
+				color: map-get($theme-colors, 'primary');
+			}
+			.title {
+				text-transform: uppercase;
+				color: map-get($theme-colors, 'primary');
+				@include font-line-height($font-lg);
+				font-weight: $text-semibold;
+				margin-bottom: calc(#{$module} * 0.5);
+			}
+		}
+		.right {
+			border: 1px solid map-get($theme-colors, 'primary');
+		}
+	}
+}

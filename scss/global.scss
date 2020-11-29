@@ -1,7 +1,7 @@
 @import './index';
-
 * {
 	margin: 0;
+	scroll-behavior: smooth;
 	padding: 0;
 }
 
@@ -33,6 +33,10 @@ small {
 }
 a {
 	display: block;
+}
+svg {
+	width: 10px;
+	height: 10px;
 }
 
 .container {

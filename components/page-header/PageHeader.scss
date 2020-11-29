@@ -9,7 +9,7 @@
 	.container {
 		display: flex;
 		justify-content: center;
-		h2 {
+		.header-subtitle {
 			display: block;
 			text-align: center;
 			@include font-line-height($h1-size);
