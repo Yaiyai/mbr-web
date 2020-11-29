@@ -69,3 +69,12 @@
 		}
 	}
 }
+.maquina-gallery {
+	padding-bottom: calc(#{$module} * 4);
+	h2 {
+		@include font-line-height(32px);
+		&::after {
+			width: 50px;
+		}
+	}
+}

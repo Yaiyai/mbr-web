@@ -9,6 +9,7 @@ export const Trabajos = ({ sections }) => {
 	const isMounted = useRef(true)
 	const [trabajos, setTrabajos] = useState()
 	const [items, setItems] = useState()
+
 	useEffect(() => {
 		const sectionID = '5fb157fefb855731d4d459dc'
 		if (isMounted.current) {

@@ -49,9 +49,10 @@ export const Contacto = ({ sections }) => {
 								))}
 								<p className='work-with-us'>
 									{contact.features[contact.features.length - 1]}{' '}
-									<a className='my-btn mini secondary' onClick={() => setShow(true)}>
-										aqui
+									<a className='link-to-modal' onClick={() => setShow(true)}>
+										aquí
 									</a>
+									.
 								</p>
 							</div>
 							<div className='right'>
