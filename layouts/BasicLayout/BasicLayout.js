@@ -1,12 +1,12 @@
 import React, { useContext } from 'react'
 import Head from 'next/head'
-import { CompanyContext } from '../../context/companyContext'
 import Footer from '../../components/footer/Footer'
 import NavBar from '../../components/nav/NavBar'
+import { CompanyContextNew } from '../../context/CompanyContextNew'
 
 const BasicLayout = (props) => {
 	const { children, location } = props
-	const { companyFetched } = useContext(CompanyContext)
+	const { companyFetched } = useContext(CompanyContextNew)
 
 	return (
 		<>
