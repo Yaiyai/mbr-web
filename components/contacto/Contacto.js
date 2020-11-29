@@ -3,6 +3,7 @@ import emailjs from 'emailjs-com'
 import Modal from 'react-bootstrap/Modal'
 
 import Swal from 'sweetalert2'
+import { Cv } from '../cv/Cv'
 
 export const Contacto = ({ sections }) => {
 	const isMounted = useRef(true)
@@ -91,10 +92,7 @@ export const Contacto = ({ sections }) => {
 						</div>
 					</div>
 					<Modal dialogClassName='modal-width' centered className='my-modals' show={show} onHide={() => setShow(false)}>
-						<Modal.Header>
-							<Modal.Title>Editando Máquina</Modal.Title>
-						</Modal.Header>
-						<Modal.Body>holi </Modal.Body>
+						<Cv sections={sections} />
 					</Modal>
 				</section>
 			)}

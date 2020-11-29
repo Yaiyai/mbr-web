@@ -27,3 +27,38 @@ textarea {
 	resize: none;
 	height: calc(#{$module} * 4);
 }
+
+form {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	.input-label {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: calc(#{$module} / 3);
+		width: 48%;
+		flex-grow: 1;
+		margin-right: 1%;
+		input {
+			width: 100%;
+		}
+	}
+	.terms {
+		display: flex;
+	}
+	.input-textarea {
+		margin-right: 1%;
+		display: flex;
+		flex-direction: column;
+		margin-bottom: calc(#{$module} * 1);
+		width: 99%;
+	}
+	.submit-accept {
+		display: flex;
+		flex-direction: row-reverse;
+		align-items: center;
+		.my-btn {
+			margin-right: calc(#{$module} / 2);
+		}
+	}
+}
