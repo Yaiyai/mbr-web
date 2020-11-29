@@ -3,11 +3,12 @@ import { useEffect, useRef, useState } from 'react'
 import BasicLayout from '../layouts/BasicLayout'
 
 import Header from '../components/header/Header'
-import NavBar from '../components/nav/NavBar'
 import { Historia } from '../components/historia/Historia'
 import { getSections } from '../components/api/section'
 import { Instalaciones } from '../components/instalaciones/Instalaciones'
 import { Trabajos } from '../components/trabajos/Trabajos'
+import { getCompany } from '../components/api/company'
+import { Contacto } from '../components/contacto/Contacto'
 
 const Home = ({ allSections }) => {
 	const isMounted = useRef(true)
@@ -21,24 +22,26 @@ const Home = ({ allSections }) => {
 
 	return (
 		<div>
-			<BasicLayout>
+			<BasicLayout location={'index'}>
 				<Head>
 					<title>Mecánica Brañosera || MBR </title>
 				</Head>
-				<NavBar clase={'nav-index'} />
 
 				<Header sections={sections} />
 				<Historia sections={sections} />
 				<Instalaciones sections={sections} />
 				<Trabajos sections={sections} />
+				<Contacto sections={sections} />
 			</BasicLayout>
 		</div>
 	)
 }
 
 export const getStaticProps = async () => {
+	const companyFetched = await getCompany()
 	const allSections = await getSections()
-	return { props: { allSections } }
+
+	return { props: { companyFetched, allSections } }
 }
 
 export default Home

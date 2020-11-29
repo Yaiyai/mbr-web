@@ -5,9 +5,15 @@ import 'swiper/swiper.scss'
 import 'swiper/components/pagination/pagination.scss'
 //Photoswipe
 import 'react-photoswipe/lib/photoswipe.css'
+import { CompanyContextNew } from '../context/CompanyContextNew'
 
 const MyApp = ({ Component, pageProps }) => {
-	return <Component {...pageProps} />
+	const companyFetched = pageProps.companyFetched
+	return (
+		<CompanyContextNew.Provider value={{ companyFetched }}>
+			<Component {...pageProps} />
+		</CompanyContextNew.Provider>
+	)
 }
 
 export default MyApp

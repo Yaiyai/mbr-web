@@ -18,6 +18,9 @@
 			text-transform: uppercase;
 			letter-spacing: 4px;
 			font-weight: $text-bold;
+			&::after {
+				display: none;
+			}
 		}
 	}
 }

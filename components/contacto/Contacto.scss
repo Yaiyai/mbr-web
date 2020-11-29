@@ -1,0 +1,35 @@
+#contacto {
+	background-color: map-get($theme-colors, 'light-grey');
+	padding: calc(#{$module} * 4) 0;
+	.container {
+		.fix {
+			display: flex;
+			.left,
+			.right {
+				width: calc((100% / 12) * 6);
+			}
+			.right {
+				padding-left: $module;
+			}
+			.left {
+				.contact-feat {
+					margin-top: calc(#{$module} * 1);
+					strong {
+						font-weight: $text-semibold;
+						color: map-get($theme-colors, 'primary');
+					}
+				}
+				.work-with-us {
+					margin-top: calc(#{$module} * 1);
+				}
+				.link-to-modal {
+					display: inline;
+					color: map-get($theme-colors, 'primary');
+					text-decoration: underline;
+					cursor: pointer;
+					font-weight: $text-semibold;
+				}
+			}
+		}
+	}
+}

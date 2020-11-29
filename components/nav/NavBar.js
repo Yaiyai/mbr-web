@@ -3,26 +3,17 @@ import Link from 'next/link'
 import Container from 'react-bootstrap/Container'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookSquare, faInstagramSquare, faLinkedin, faTwitterSquare } from '@fortawesome/free-brands-svg-icons'
-import { getCompany } from '../api/company'
 
-const NavBar = ({ clase }) => {
+const NavBar = ({ clase, company }) => {
 	const isMounted = useRef(true)
 	const theNav = useRef()
-	const [theCompany, setTheCompany] = useState()
-
-	const fetchCompany = async () => {
-		const companyFetched = await getCompany()
-		setTheCompany(companyFetched)
-	}
+	const [theCompany] = useState(company)
 
 	useEffect(() => {
-		if (isMounted.current) {
-			fetchCompany()
-		}
 		return () => {
 			isMounted.current = false
 		}
-	}, [theCompany])
+	}, [])
 
 	useEffect(() => {
 		window.addEventListener('scroll', addClass)
@@ -73,7 +64,7 @@ const NavBar = ({ clase }) => {
 								</Link>
 							</li>
 							<li>
-								<Link href='/parque-de-maquinaria' as='/parque-de-maquinaria'>
+								<Link href='/parque-de-maquinaria'>
 									<a>Maquinaria</a>
 								</Link>
 							</li>

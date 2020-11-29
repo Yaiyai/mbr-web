@@ -3,32 +3,54 @@ import Head from 'next/head'
 import BasicLayout from '../../layouts/BasicLayout'
 import { faCheckCircle, faAngleDoubleLeft } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import NavBar from '../../components/nav/NavBar'
 import { getMaquinas, getMaquinasById } from '../../components/api/maquinas'
 import { PageHeader } from '../../components/page-header/PageHeader'
 import Link from 'next/link'
+import { getCompany } from '../../components/api/company'
+import { PhotoSwipeGallery } from 'react-photoswipe'
 
 const MaquinaSelected = ({ theMaquina }) => {
 	const isMounted = useRef(true)
-	const [thisMaquina, setthisMaquina] = useState()
+	const [thisMaquina] = useState(theMaquina)
+	const [items, setItems] = useState()
 
 	useEffect(() => {
 		if (isMounted.current) {
-			setthisMaquina(theMaquina)
+			if (thisMaquina) {
+				setItems(
+					thisMaquina.gallery.map((elm) => {
+						return {
+							src: elm,
+							thumbnail: getThumbnails(elm),
+							w: 1200,
+							h: 900,
+						}
+					})
+				)
+			}
 		}
 		return () => {
 			isMounted.current = false
 		}
-	}, [thisMaquina])
+	}, [thisMaquina, items])
+
+	const getThumbnails = (str) => {
+		let splitStr = str.split('upload/')
+		let newStr = 'upload/w_200/'
+		return `${splitStr[0]}${newStr}${splitStr[1]}`
+	}
+
+	const getThumbnailContent = (item) => {
+		return <img src={item.thumbnail} />
+	}
 
 	return (
 		<>
 			{thisMaquina && (
-				<BasicLayout>
+				<BasicLayout location={'parque'}>
 					<Head>
 						<title>MBR || {thisMaquina.name} </title>
 					</Head>
-					<NavBar clase={'nav-normal'} />
 					<PageHeader title={thisMaquina.name} />
 
 					<section className='maquina-selected container'>
@@ -55,6 +77,12 @@ const MaquinaSelected = ({ theMaquina }) => {
 							</ul>
 						</div>
 					</section>
+					{thisMaquina.gallery.length > 0 && (
+						<section class='maquina-gallery container'>
+							<h2>Trabajos de esta máquina</h2>
+							{items && <PhotoSwipeGallery items={items} thumbnailContent={getThumbnailContent} />}
+						</section>
+					)}
 				</BasicLayout>
 			)}
 		</>
@@ -78,8 +106,9 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params }) => {
 	const { maquina } = params
+	const companyFetched = await getCompany()
 	const theMaquina = await getMaquinasById(maquina)
-	return { props: { theMaquina } }
+	return { props: { theMaquina, companyFetched } }
 }
 
 export default MaquinaSelected

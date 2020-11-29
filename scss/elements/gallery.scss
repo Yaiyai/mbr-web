@@ -1,0 +1,17 @@
+.pswp-gallery {
+	.pswp-thumbnails {
+		display: flex;
+		flex-wrap: wrap;
+		.pswp-thumbnail {
+			@include items-grid(6, $module);
+			height: 170px;
+			overflow: hidden;
+			cursor: pointer;
+			img {
+				height: 100%;
+				object-position: center;
+				object-fit: cover;
+			}
+		}
+	}
+}
