@@ -1,0 +1,29 @@
+label {
+	font-size: 10px;
+	text-transform: uppercase;
+	margin-bottom: 0;
+}
+input,
+textarea {
+	border: map-get($theme-colors, 'grey') 1px solid;
+	border-radius: 0;
+	@include font-line-height($font-xs);
+	padding: calc(#{$module} / 3);
+	&::placeholder {
+		display: block;
+		@include font-line-height($font-xs);
+		color: map-get($theme-colors, 'grey');
+		padding: calc(#{$module} / 3);
+	}
+	&:focus {
+		border: map-get($theme-colors, 'secondary') 1px solid;
+		border-radius: 0;
+	}
+	&[type='checkbox'] {
+		margin-right: calc(#{$module} / 6);
+	}
+}
+textarea {
+	resize: none;
+	height: calc(#{$module} * 4);
+}

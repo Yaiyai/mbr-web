@@ -8,6 +8,7 @@ import { getSections } from '../components/api/section'
 import { Instalaciones } from '../components/instalaciones/Instalaciones'
 import { Trabajos } from '../components/trabajos/Trabajos'
 import { getCompany } from '../components/api/company'
+import { Contacto } from '../components/contacto/Contacto'
 
 const Home = ({ allSections }) => {
 	const isMounted = useRef(true)
@@ -30,6 +31,7 @@ const Home = ({ allSections }) => {
 				<Historia sections={sections} />
 				<Instalaciones sections={sections} />
 				<Trabajos sections={sections} />
+				<Contacto sections={sections} />
 			</BasicLayout>
 		</div>
 	)

@@ -7,13 +7,12 @@ import { PhotoSwipeGallery } from 'react-photoswipe'
 
 export const Trabajos = ({ sections }) => {
 	const isMounted = useRef(true)
-	const [allSections] = useState(sections)
 	const [trabajos, setTrabajos] = useState()
 	const [items, setItems] = useState()
 	useEffect(() => {
 		const sectionID = '5fb157fefb855731d4d459dc'
 		if (isMounted.current) {
-			setTrabajos(allSections.find((elm) => elm._id === sectionID))
+			setTrabajos(sections.find((elm) => elm._id === sectionID))
 		}
 	}, [trabajos])
 
@@ -56,7 +55,7 @@ export const Trabajos = ({ sections }) => {
 				<section id='trabajos' className='trabajos'>
 					<div className='container'>
 						<h2>{trabajos.title}</h2>
-						<PhotoSwipeGallery items={items} thumbnailContent={getThumbnailContent} />
+						{items && <PhotoSwipeGallery items={items} thumbnailContent={getThumbnailContent} />}
 					</div>
 				</section>
 			)}

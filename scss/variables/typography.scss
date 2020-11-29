@@ -69,3 +69,9 @@ p {
 	letter-spacing: 1.33px;
 	font-weight: $text-light;
 }
+.subtitle {
+	text-transform: uppercase;
+	color: map-get($theme-colors, 'primary');
+	@include font-line-height($font-lg);
+	font-weight: $text-semibold;
+}

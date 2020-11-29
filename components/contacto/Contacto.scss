@@ -1,0 +1,62 @@
+#contacto {
+	background-color: map-get($theme-colors, 'light-grey');
+	padding: calc(#{$module} * 4) 0;
+	.container {
+		.fix {
+			display: flex;
+			.left,
+			.right {
+				width: calc((100% / 12) * 6);
+			}
+			.right {
+				padding-left: $module;
+				form {
+					width: 100%;
+					display: flex;
+					flex-wrap: wrap;
+					.input-label {
+						display: flex;
+						flex-direction: column;
+						margin-bottom: calc(#{$module} / 3);
+						width: 48%;
+						flex-grow: 1;
+						margin-right: 1%;
+						input {
+							width: 100%;
+						}
+					}
+					.terms {
+						display: flex;
+					}
+					.input-textarea {
+						margin-right: 1%;
+						display: flex;
+						flex-direction: column;
+						margin-bottom: calc(#{$module} * 1);
+						width: 99%;
+					}
+					.submit-accept {
+						display: flex;
+						flex-direction: row-reverse;
+						align-items: center;
+						.my-btn {
+							margin-right: calc(#{$module} / 2);
+						}
+					}
+				}
+			}
+			.left {
+				.contact-feat {
+					margin-top: calc(#{$module} * 1);
+					strong {
+						font-weight: $text-semibold;
+						color: map-get($theme-colors, 'primary');
+					}
+				}
+				.work-with-us {
+					margin-top: calc(#{$module} * 1);
+				}
+			}
+		}
+	}
+}
