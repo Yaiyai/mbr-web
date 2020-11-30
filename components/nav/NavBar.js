@@ -12,15 +12,17 @@ const NavBar = ({ clase, company }) => {
 
 	useEffect(() => {
 		setHeight(theNav.current.clientHeight)
-		window.addEventListener('scroll', addClass)
+		if (theNav) {
+			window.addEventListener('scroll', addClass)
+		}
 		return () => {
 			window.removeEventListener('scroll', addClass)
 			isMounted.current = false
 		}
-	}, [])
+	}, [theNav, theHeight])
 
 	const addClass = () => {
-		if (theNav && window.scrollY > theHeight) {
+		if (window.scrollY > theHeight) {
 			return theNav.current.classList.add('scrolled')
 		} else {
 			return theNav.current.classList.remove('scrolled')
