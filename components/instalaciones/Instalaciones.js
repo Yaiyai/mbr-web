@@ -32,50 +32,52 @@ export const Instalaciones = ({ sections }) => {
 	return (
 		<>
 			{instalaciones && (
-				<section id='instalaciones' className='instalaciones'>
-					<article className='container'>
-						<h2>{instalaciones.title}</h2>
-					</article>
-					<Swiper
-						spaceBetween={0}
-						autoplay={{
-							delay: 2500,
-						}}
-						slidesPerView={1}
-						pagination={{ clickable: true }}>
-						{instalaciones.gallery?.map((elm, idx) => (
-							<SwiperSlide key={idx}>
-								<img src={elm} alt='' />
-							</SwiperSlide>
-						))}
-					</Swiper>
-					<article className='container plantas'>
-						<div className='left'>
-							<div className='title'>Planta de Requejo</div>
-							{instalaciones.features && (
-								<ul>
-									{instalaciones.features.slice(0, 2).map((elm, idx) => (
-										<li key={idx}>
+				<div>
+					<section className='instalaciones'>
+						<article className='container'>
+							<h2>{instalaciones.title}</h2>
+						</article>
+						<Swiper
+							spaceBetween={0}
+							autoplay={{
+								delay: 2500,
+							}}
+							slidesPerView={1}
+							pagination={{ clickable: true }}>
+							{instalaciones.gallery?.map((elm, idx) => (
+								<SwiperSlide key={idx}>
+									<img src={elm} alt='' />
+								</SwiperSlide>
+							))}
+						</Swiper>
+						<article className='container plantas'>
+							<div className='left'>
+								<div className='title'>Planta de Requejo</div>
+								{instalaciones.features && (
+									<ul>
+										{instalaciones.features.slice(0, 2).map((elm, idx) => (
+											<li key={idx}>
+												<FontAwesomeIcon icon={faCheckCircle} />
+												{elm}
+											</li>
+										))}
+									</ul>
+								)}
+							</div>
+							<div className='right'>
+								<div className='title'>Planta de Reinosa</div>
+								{instalaciones.features && (
+									<ul>
+										<li>
 											<FontAwesomeIcon icon={faCheckCircle} />
-											{elm}
+											{instalaciones.features[instalaciones.features.length - 1]}
 										</li>
-									))}
-								</ul>
-							)}
-						</div>
-						<div className='right'>
-							<div className='title'>Planta de Reinosa</div>
-							{instalaciones.features && (
-								<ul>
-									<li>
-										<FontAwesomeIcon icon={faCheckCircle} />
-										{instalaciones.features[instalaciones.features.length - 1]}
-									</li>
-								</ul>
-							)}
-						</div>
-					</article>
-				</section>
+									</ul>
+								)}
+							</div>
+						</article>
+					</section>
+				</div>
 			)}
 		</>
 	)

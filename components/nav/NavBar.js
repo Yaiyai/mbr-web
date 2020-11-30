@@ -5,30 +5,25 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookSquare, faInstagramSquare, faLinkedin, faTwitterSquare } from '@fortawesome/free-brands-svg-icons'
 
 const NavBar = ({ clase, company }) => {
+	const [theHeight, setHeight] = useState(0)
 	const isMounted = useRef(true)
-	const theNav = useRef()
+	const theNav = useRef(null)
 	const [theCompany] = useState(company)
 
 	useEffect(() => {
+		setHeight(theNav.current.clientHeight)
+		window.addEventListener('scroll', addClass)
 		return () => {
+			window.removeEventListener('scroll', addClass)
 			isMounted.current = false
 		}
 	}, [])
 
-	useEffect(() => {
-		window.addEventListener('scroll', addClass)
-		return () => {
-			window.removeEventListener('scroll', addClass)
-		}
-	}, [])
-
 	const addClass = () => {
-		let navDom = theNav.current
-		let navHeight = navDom.offsetHeight
-		if (window.scrollY > navHeight) {
-			return navDom.classList.add('scrolled')
+		if (theNav && window.scrollY > theHeight) {
+			return theNav.current.classList.add('scrolled')
 		} else {
-			return navDom.classList.remove('scrolled')
+			return theNav.current.classList.remove('scrolled')
 		}
 	}
 
@@ -73,31 +68,31 @@ const NavBar = ({ clase, company }) => {
 					<div>
 						<ul className='right'>
 							<li>
-								<a href='#ubicación'>Ubicación</a>
+								<a href='/#ubicación'>Ubicación</a>
 							</li>
 							<li>
-								<a href='#contacto'>Contacto</a>
+								<a href='/#contacto'>Contacto</a>
 							</li>
 						</ul>
 						{(theCompany.twitter || theCompany.facebook || theCompany.linkedin || theCompany.instagram) && (
 							<ul className='rrss-buttons'>
 								{theCompany.facebook && (
-									<a href={theCompany.facebook} className='rrss-icon' target='_blank'>
+									<a href={theCompany.facebook} className='rrss-icon' target='new'>
 										<FontAwesomeIcon icon={faFacebookSquare} />
 									</a>
 								)}
 								{theCompany.twitter && (
-									<a href={theCompany.twitter} className='rrss-icon' target='_blank'>
+									<a href={theCompany.twitter} className='rrss-icon' target='new'>
 										<FontAwesomeIcon icon={faTwitterSquare} />
 									</a>
 								)}
 								{theCompany.instagram && (
-									<a href={theCompany.instagram} className='rrss-icon' target='_blank'>
+									<a href={theCompany.instagram} className='rrss-icon' target='new'>
 										<FontAwesomeIcon icon={faInstagramSquare} />
 									</a>
 								)}
 								{theCompany.linkedin && (
-									<a href={theCompany.linkedin} className='rrss-icon' target='_blank'>
+									<a href={theCompany.linkedin} className='rrss-icon' target='new'>
 										<FontAwesomeIcon icon={faLinkedin} />
 									</a>
 								)}

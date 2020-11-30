@@ -28,9 +28,14 @@ const Home = ({ allSections }) => {
 				</Head>
 
 				<Header sections={sections} />
+				<a id='historia'></a>
 				<Historia sections={sections} />
+
+				<a id='instalaciones'></a>
 				<Instalaciones sections={sections} />
+				<a id='trabajos'></a>
 				<Trabajos sections={sections} />
+				<a id='contacto'></a>
 				<Contacto sections={sections} />
 			</BasicLayout>
 		</div>

@@ -1,5 +1,5 @@
 .historia {
-	padding: calc(#{$module} * 6) 0;
+	padding: calc(#{$module} * 8) 0 calc(#{$module} * 2);
 	position: relative;
 	&::after {
 		content: '';

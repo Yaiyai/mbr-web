@@ -35,7 +35,7 @@ export const Contacto = ({ sections }) => {
 	return (
 		<>
 			{contact && (
-				<section id='contacto'>
+				<section className='contacto'>
 					<div className='container'>
 						<p className='subtitle'>{contact.subtitle}</p>
 						<h2>{contact.title}</h2>

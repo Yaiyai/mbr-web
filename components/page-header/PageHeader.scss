@@ -6,6 +6,9 @@
 	backdrop-filter: invert(0.8);
 	position: relative;
 	background-color: map-get($theme-colors, 'grey');
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
 	.container {
 		display: flex;
 		justify-content: center;

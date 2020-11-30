@@ -1,6 +1,6 @@
-#contacto {
+.contacto {
 	background-color: map-get($theme-colors, 'light-grey');
-	padding: calc(#{$module} * 4) 0;
+	padding: calc(#{$module} * 6) 0 calc(#{$module} * 4);
 	.container {
 		.fix {
 			display: flex;

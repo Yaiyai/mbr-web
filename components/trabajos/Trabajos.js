@@ -53,7 +53,7 @@ export const Trabajos = ({ sections }) => {
 	return (
 		<>
 			{trabajos && (
-				<section id='trabajos' className='trabajos'>
+				<section className='trabajos'>
 					<div className='container'>
 						<h2>{trabajos.title}</h2>
 						{items && <PhotoSwipeGallery items={items} thumbnailContent={getThumbnailContent} />}
