@@ -70,10 +70,14 @@ const NavBar = ({ clase, company }) => {
 					<div>
 						<ul className='right'>
 							<li>
-								<a href='/#ubicación'>Ubicación</a>
+								<Link href='/#contacto'>
+									<a>Contacto</a>
+								</Link>
 							</li>
 							<li>
-								<a href='/#contacto'>Contacto</a>
+								<Link href='/#ubicacion'>
+									<a>Ubicación</a>
+								</Link>
 							</li>
 						</ul>
 						{(theCompany.twitter || theCompany.facebook || theCompany.linkedin || theCompany.instagram) && (

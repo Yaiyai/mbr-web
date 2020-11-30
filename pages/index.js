@@ -9,6 +9,7 @@ import { Instalaciones } from '../components/instalaciones/Instalaciones'
 import { Trabajos } from '../components/trabajos/Trabajos'
 import { getCompany } from '../components/api/company'
 import { Contacto } from '../components/contacto/Contacto'
+import { Ubicacion } from '../components/ubicacion/Ubicacion'
 
 const Home = ({ allSections }) => {
 	const isMounted = useRef(true)
@@ -37,6 +38,8 @@ const Home = ({ allSections }) => {
 				<Trabajos sections={sections} />
 				<a id='contacto'></a>
 				<Contacto sections={sections} />
+				<a id='ubicacion'></a>
+				<Ubicacion sections={sections} />
 			</BasicLayout>
 		</div>
 	)
