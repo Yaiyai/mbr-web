@@ -5,7 +5,6 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 SwiperCore.use([Autoplay, Pagination])
 
 export const Historia = ({ sections }) => {
-	const [allSections, setAllSections] = useState(sections)
 	const [historia, setHistoria] = useState()
 
 	const isMounted = useRef(true)
@@ -19,7 +18,7 @@ export const Historia = ({ sections }) => {
 	useEffect(() => {
 		const sectionID = '5fb156befb855731d4d459da'
 		if (isMounted.current) {
-			setHistoria(allSections?.find((elm) => elm._id === sectionID))
+			setHistoria(sections?.find((elm) => elm._id === sectionID))
 		}
 	}, [historia])
 

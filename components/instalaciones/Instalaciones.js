@@ -9,7 +9,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const Instalaciones = ({ sections }) => {
 	const isMounted = useRef(true)
-	const [allSections] = useState(sections)
 	const [instalaciones, setInstalaciones] = useState()
 
 	if (instalaciones) {
@@ -25,7 +24,7 @@ export const Instalaciones = ({ sections }) => {
 	useEffect(() => {
 		const sectionID = '5fb15764fb855731d4d459db'
 		if (isMounted.current) {
-			setInstalaciones(allSections.find((elm) => elm._id === sectionID))
+			setInstalaciones(sections.find((elm) => elm._id === sectionID))
 		}
 	}, [instalaciones])
 
