@@ -78,7 +78,7 @@ const MaquinaSelected = ({ theMaquina }) => {
 						</div>
 					</section>
 					{thisMaquina.gallery.length > 0 && (
-						<section class='maquina-gallery container'>
+						<section className='maquina-gallery container'>
 							<h2>Trabajos de esta máquina</h2>
 							{items && <PhotoSwipeGallery items={items} thumbnailContent={getThumbnailContent} />}
 						</section>

@@ -1,5 +1,5 @@
 .instalaciones {
-	padding: calc(#{$module} * 2) 0 calc(#{$module} * 6);
+	padding: calc(#{$module} * 6) 0 calc(#{$module} * 4);
 	position: relative;
 	&::after {
 		content: '';

@@ -7,10 +7,13 @@ import { getMaquinas } from '../../components/api/maquinas'
 import { getThisSection } from '../../components/api/section'
 import { PageHeader } from '../../components/page-header/PageHeader'
 import { getCompany } from '../../components/api/company'
+import { useContext } from 'react'
+import { CompanyContextNew } from '../../context/CompanyContextNew'
 
 const ParqueDeMaquinaria = ({ theMaquinas, thisSection }) => {
 	const [allMaquinas] = useState(theMaquinas)
 	const [section] = useState(thisSection)
+	const { companyFetched } = useContext(CompanyContextNew)
 	return (
 		<>
 			<BasicLayout location={'parque'}>
@@ -21,6 +24,9 @@ const ParqueDeMaquinaria = ({ theMaquinas, thisSection }) => {
 				<Container>
 					{allMaquinas && (
 						<section className='all-maquinas'>
+							{companyFetched?.maquinasCategories.map((elm) => (
+								<a key={elm}>{elm}</a>
+							))}
 							{allMaquinas.map((maq) => (
 								<article key={maq._id} className='each-maquina'>
 									<div className='inner'>
