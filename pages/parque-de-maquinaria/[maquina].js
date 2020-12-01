@@ -35,12 +35,27 @@ const MaquinaSelected = ({ theMaquina }) => {
 	}, [thisMaquina, items])
 
 	const getThumbnails = (str) => {
-		let splitStr = str.split('upload/')
-		let newStr = 'upload/w_200/'
-		return `${splitStr[0]}${newStr}${splitStr[1]}`
+		if (str.includes('mp4')) {
+			let splitFormat = str.split('mp4')
+			let splitStr = splitFormat[0].split('upload/')
+			let newStr = 'upload/w_200/'
+			return `${splitStr[0]}${newStr}${splitStr[1]}jpg`
+		} else if (str.includes('mov')) {
+			let splitFormat = str.split('mov')
+			let splitStr = splitFormat[0].split('upload/')
+			let newStr = 'upload/w_200/'
+			return `${splitStr[0]}${newStr}${splitStr[1]}jpg`
+		} else {
+			let splitStr = str.split('upload/')
+			let newStr = 'upload/w_200/'
+			return `${splitStr[0]}${newStr}${splitStr[1]}`
+		}
 	}
 
 	const getThumbnailContent = (item) => {
+		if (item.thumbnail.includes('mp4')) {
+			console.log('hola')
+		}
 		return <img src={item.thumbnail} />
 	}
 
@@ -67,6 +82,10 @@ const MaquinaSelected = ({ theMaquina }) => {
 						</div>
 						<div className='right'>
 							<ul className='features'>
+								<li>
+									<FontAwesomeIcon icon={faCheckCircle} />
+									Categoría: {thisMaquina.category}
+								</li>
 								{thisMaquina.features.map((ft, idx) => (
 									<li key={idx}>
 										{' '}
