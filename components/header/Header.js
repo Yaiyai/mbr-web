@@ -5,7 +5,6 @@ import Link from 'next/link'
 import Container from 'react-bootstrap/Container'
 
 const Header = ({ sections }) => {
-	const [allSections] = useState(sections)
 	const [header, setHeader] = useState()
 	const isMounted = useRef(true)
 
@@ -20,7 +19,7 @@ const Header = ({ sections }) => {
 	useEffect(() => {
 		const sectionID = '5fb107a0a89ab807f04df010'
 		if (isMounted.current) {
-			setHeader(allSections?.find((elm) => elm._id === sectionID))
+			setHeader(sections?.find((elm) => elm._id === sectionID))
 		}
 	}, [])
 
