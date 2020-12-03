@@ -31,7 +31,7 @@ export const Ubicacion = ({ sections }) => {
 									<h3>{companyFetched.name}</h3>
 									<h4>{companyFetched.address}</h4>
 								</article>
-								<p>{ubicacion.text}</p>
+								{ubicacion.parsedText ? <div dangerouslySetInnerHTML={ubicacion.parsedText}></div> : <p>{ubicacion.text}</p>}
 							</article>
 						</article>
 					</div>

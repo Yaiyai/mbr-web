@@ -41,7 +41,7 @@ export const Contacto = ({ sections }) => {
 						<h2>{contact.title}</h2>
 						<div className='fix'>
 							<div className='left'>
-								<p className='contact-text'>{contact.text}</p>
+								{contact.parsedText ? <div className='contact-text' dangerouslySetInnerHTML={contact.parsedText}></div> : <p className='contact-text'>{contact.text}</p>}
 								{contact?.features.slice(0, contact.features.length - 1).map((elm, idx) => (
 									<p className='contact-feat' key={idx}>
 										<strong>{elm.split(':')[0]}</strong>: {elm.split(':')[1]}
