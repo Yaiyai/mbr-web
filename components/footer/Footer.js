@@ -24,10 +24,19 @@ const Footer = ({ company }) => {
 						<p>Nosotros</p>
 						<ul>
 							<li>
-								<a href='#'>Historia</a>
+								<Link href='/#historia'>
+									<a>Historia</a>
+								</Link>
 							</li>
 							<li>
-								<a href='#'>Ubicación</a>
+								<Link href='/#ubicacion'>
+									<a>Ubicación</a>
+								</Link>
+							</li>
+							<li>
+								<Link href='/parque-de-maquinaria#subvenciones'>
+									<a>Maquinaria</a>
+								</Link>
 							</li>
 						</ul>
 					</div>
@@ -35,7 +44,9 @@ const Footer = ({ company }) => {
 						<p>Maquinaria</p>
 						<ul>
 							<li>
-								<a href='#'>Instalaciones</a>
+								<Link href='/#instalaciones'>
+									<a>Instalaciones</a>
+								</Link>
 							</li>
 							<li>
 								<Link href='/parque-de-maquinaria'>
@@ -48,7 +59,9 @@ const Footer = ({ company }) => {
 						<p>Trabajos</p>
 						<ul>
 							<li>
-								<a href='#'>Trabajos</a>
+								<Link href='/#trabajos'>
+									<a>Trabajos</a>
+								</Link>
 							</li>
 						</ul>
 					</div>

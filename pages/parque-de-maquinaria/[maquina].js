@@ -3,19 +3,33 @@ import Head from 'next/head'
 import BasicLayout from '../../layouts/BasicLayout'
 import { faCheckCircle, faAngleDoubleLeft } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { getMaquinas, getMaquinasById } from '../../components/api/maquinas'
 import { PageHeader } from '../../components/page-header/PageHeader'
 import Link from 'next/link'
 import { getCompany } from '../../components/api/company'
 import { PhotoSwipeGallery } from 'react-photoswipe'
+import { useRouter } from 'next/router'
+const apiURL = process.env.baseURL
 
-const MaquinaSelected = ({ theMaquina }) => {
+const MaquinaSelected = () => {
+	const router = useRouter()
+	const maquinaId = router.query.maquina
 	const isMounted = useRef(true)
-	const [thisMaquina] = useState(theMaquina)
+	const [thisMaquina, setMaquina] = useState()
 	const [items, setItems] = useState()
 
 	useEffect(() => {
+		return () => {
+			isMounted.current = false
+		}
+	}, [items])
+
+	useEffect(() => {
 		if (isMounted.current) {
+			fetch(`${apiURL}/maquinaria/${maquinaId}`)
+				.then((data) => data.json())
+				.then((data) => setMaquina(data.data))
+				.catch((err) => console.log(err))
+
 			if (thisMaquina) {
 				setItems(
 					thisMaquina.gallery.map((elm) => {
@@ -29,10 +43,7 @@ const MaquinaSelected = ({ theMaquina }) => {
 				)
 			}
 		}
-		return () => {
-			isMounted.current = false
-		}
-	}, [thisMaquina, items])
+	}, [maquinaId, thisMaquina, items])
 
 	const getThumbnails = (str) => {
 		if (str.includes('mp4')) {
@@ -54,7 +65,6 @@ const MaquinaSelected = ({ theMaquina }) => {
 
 	const getThumbnailContent = (item) => {
 		if (item.thumbnail.includes('mp4')) {
-			console.log('hola')
 		}
 		return <img src={item.thumbnail} />
 	}
@@ -107,27 +117,10 @@ const MaquinaSelected = ({ theMaquina }) => {
 		</>
 	)
 }
-
-export const getStaticPaths = async () => {
-	const theMaquinas = await getMaquinas()
-	return {
-		paths: theMaquinas.map((maq) => {
-			return {
-				params: {
-					maquina: maq._id,
-				},
-			}
-		}),
-
-		fallback: false,
-	}
-}
-
-export const getStaticProps = async ({ params }) => {
-	const { maquina } = params
+export const getServerSideProps = async () => {
 	const companyFetched = await getCompany()
-	const theMaquina = await getMaquinasById(maquina)
-	return { props: { theMaquina, companyFetched } }
+
+	return { props: { companyFetched } }
 }
 
 export default MaquinaSelected

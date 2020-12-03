@@ -10,8 +10,9 @@ import { Trabajos } from '../components/trabajos/Trabajos'
 import { getCompany } from '../components/api/company'
 import { Contacto } from '../components/contacto/Contacto'
 import { Ubicacion } from '../components/ubicacion/Ubicacion'
+import { getMaquinas } from '../components/api/maquinas'
 
-const Home = ({ allSections }) => {
+const Home = ({ allSections, theMaquinas }) => {
 	const isMounted = useRef(true)
 	const [sections] = useState(allSections)
 
@@ -45,11 +46,12 @@ const Home = ({ allSections }) => {
 	)
 }
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
 	const companyFetched = await getCompany()
 	const allSections = await getSections()
+	const theMaquinas = await getMaquinas()
 
-	return { props: { companyFetched, allSections } }
+	return { props: { companyFetched, allSections, theMaquinas } }
 }
 
 export default Home
