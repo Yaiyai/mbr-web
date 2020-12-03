@@ -85,7 +85,7 @@ const ParqueDeMaquinaria = ({ theMaquinas, thisSection }) => {
 	)
 }
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
 	const companyFetched = await getCompany()
 	const theMaquinas = await getMaquinas()
 	const thisSection = await getThisSection('5fb15988fb855731d4d459df')
