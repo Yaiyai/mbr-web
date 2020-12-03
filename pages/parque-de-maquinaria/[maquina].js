@@ -64,8 +64,6 @@ const MaquinaSelected = () => {
 	}
 
 	const getThumbnailContent = (item) => {
-		if (item.thumbnail.includes('mp4')) {
-		}
 		return <img src={item.thumbnail} />
 	}
 
