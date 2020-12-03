@@ -25,7 +25,6 @@ const MaquinaSelected = () => {
 
 	useEffect(() => {
 		if (isMounted.current) {
-			console.log('hola')
 			fetch(`${apiURL}/maquinaria/${maquinaId}`)
 				.then((data) => data.json())
 				.then((data) => setMaquina(data.data))
@@ -66,7 +65,6 @@ const MaquinaSelected = () => {
 
 	const getThumbnailContent = (item) => {
 		if (item.thumbnail.includes('mp4')) {
-			console.log('hola')
 		}
 		return <img src={item.thumbnail} />
 	}
