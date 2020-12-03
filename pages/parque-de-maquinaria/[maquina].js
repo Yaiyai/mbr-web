@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { getCompany } from '../../components/api/company'
 import { PhotoSwipeGallery } from 'react-photoswipe'
 import { useRouter } from 'next/router'
+
 const apiURL = process.env.baseURL
 
 const MaquinaSelected = () => {
@@ -64,8 +65,6 @@ const MaquinaSelected = () => {
 	}
 
 	const getThumbnailContent = (item) => {
-		if (item.thumbnail.includes('mp4')) {
-		}
 		return <img src={item.thumbnail} />
 	}
 
@@ -106,7 +105,8 @@ const MaquinaSelected = () => {
 							</ul>
 						</div>
 					</section>
-					{thisMaquina.gallery.length > 0 && (
+
+					{thisMaquina?.gallery.length > 0 && (
 						<section className='maquina-gallery container'>
 							<h2>Trabajos de esta máquina</h2>
 							{items && <PhotoSwipeGallery items={items} thumbnailContent={getThumbnailContent} />}

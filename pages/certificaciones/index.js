@@ -9,6 +9,13 @@ const Certificaciones = ({ thisSection }) => {
 		<BasicLayout location={'parque'}>
 			<section className='certificaciones'>
 				<PageHeader title={thisSection.title} bkg={thisSection.uniqueImage} />
+				<div className='all-certs container'>
+					{thisSection?.gallery.map((elm) => (
+						<figure key={elm} className='each-cert'>
+							<img src={elm} alt='' />
+						</figure>
+					))}
+				</div>
 			</section>
 		</BasicLayout>
 	)
