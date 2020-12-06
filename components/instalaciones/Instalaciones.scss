@@ -47,13 +47,6 @@
 				margin-right: calc(#{$module} / 3);
 				color: map-get($theme-colors, 'primary');
 			}
-			.title {
-				text-transform: uppercase;
-				color: map-get($theme-colors, 'primary');
-				@include font-line-height($font-lg);
-				font-weight: $text-semibold;
-				margin-bottom: calc(#{$module} * 0.5);
-			}
 		}
 		.right {
 			border: 1px solid map-get($theme-colors, 'primary');

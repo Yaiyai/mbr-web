@@ -45,7 +45,7 @@ export const Historia = ({ sections }) => {
 						<div className='right'>
 							<p className='subtitle'>{historia.subtitle}</p>
 							<h2>{historia.title}</h2>
-							{historia.parsedText ? <div dangerouslySetInnerHTML={historia.parsedText}></div> : <p>{historia.text}</p>}
+							{historia.parsedText ? <div className='text-editor' dangerouslySetInnerHTML={historia.parsedText}></div> : <p>{historia.text}</p>}
 						</div>
 					</div>
 				</section>

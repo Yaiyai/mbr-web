@@ -69,13 +69,19 @@ const Footer = ({ company }) => {
 						<p>Condiciones Legales</p>
 						<ul>
 							<li>
-								<a>Política de Privacidad</a>
+								<Link href='/politica-privacidad'>
+									<a>Política de Privacidad</a>
+								</Link>
 							</li>
 							<li>
-								<a>Términos y condiciones</a>
+								<Link href='/aviso-legal'>
+									<a>Aviso Legal</a>
+								</Link>
 							</li>
 							<li>
-								<a>Cookies</a>
+								<Link href='/cookies'>
+									<a>Política de Cookies</a>
+								</Link>
 							</li>
 						</ul>
 					</div>
