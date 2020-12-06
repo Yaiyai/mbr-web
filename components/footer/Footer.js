@@ -38,6 +38,11 @@ const Footer = ({ company }) => {
 									<a>Maquinaria</a>
 								</Link>
 							</li>
+							<li>
+								<Link href='/certificaciones'>
+									<a>Certificaciones</a>
+								</Link>
+							</li>
 						</ul>
 					</div>
 					<div className='second'>
@@ -51,6 +56,11 @@ const Footer = ({ company }) => {
 							<li>
 								<Link href='/parque-de-maquinaria'>
 									<a>Maquinaria</a>
+								</Link>
+							</li>
+							<li>
+								<Link href='/subvenciones'>
+									<a>Subvenciones</a>
 								</Link>
 							</li>
 						</ul>
