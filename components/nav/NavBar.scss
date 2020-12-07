@@ -10,45 +10,26 @@
 	}
 	&.nav-index {
 		background-color: transparent;
+		&.open-submenu {
+			background-color: transparent;
+			@include breakpoint(md-down) {
+				background-color: #343434;
+			}
+		}
 	}
 	.container {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-
-		> div {
-			display: flex;
-			align-items: center;
-		}
-		ul {
-			display: flex;
-			li {
-				a {
-					@include font-line-height($font-xs);
-					color: white;
-					&:hover {
-						color: map-get($theme-colors, 'secondary');
-						text-decoration: underline;
-					}
-				}
-			}
-			&.left {
-				a {
-					margin-right: $module;
-				}
-			}
-			&.right {
-				a {
-					margin-left: $module;
-				}
-			}
-		}
 		.nav-logo {
 			width: 320px;
 			height: 130px;
 			margin-bottom: 0;
 			margin-right: $module;
 			overflow: hidden;
+			@include breakpoint(lg) {
+				width: 240px;
+			}
+			@include breakpoint(md-down) {
+				width: 200px;
+			}
 			&#main-logo {
 				display: none;
 			}
@@ -61,19 +42,109 @@
 				object-position: center;
 			}
 		}
-
 		.rrss-buttons {
 			margin-left: $module;
+			@include breakpoint(md-down) {
+				display: flex;
+				margin-left: 0;
+			}
 			.rrss-icon {
 				margin-left: calc(#{$module} / 3);
 				color: white;
 				font-family: $fontawesome;
+				@include breakpoint(lg) {
+					margin-left: calc(#{$module} / 6);
+				}
 				&:hover {
 					color: map-get($theme-colors, 'secondary');
 				}
 				svg {
 					width: calc(#{$module} / 1.5);
 					height: calc(#{$module} / 1.5);
+					@include breakpoint(md-down) {
+						width: calc(#{$module} * 1.5);
+						height: calc(#{$module} * 1.5);
+					}
+				}
+			}
+		}
+
+		&.desktop {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			@include breakpoint(md-down) {
+				display: none;
+			}
+
+			> div {
+				display: flex;
+				align-items: center;
+			}
+			ul {
+				display: flex;
+				li {
+					a {
+						@include font-line-height($font-xs);
+						color: white;
+						&:hover {
+							color: map-get($theme-colors, 'secondary');
+							text-decoration: underline;
+						}
+					}
+				}
+				&.left {
+					a {
+						margin-right: $module;
+					}
+				}
+				&.right {
+					a {
+						margin-left: $module;
+					}
+				}
+			}
+		}
+		&.mobile {
+			display: none;
+			@include breakpoint(md-down) {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
+			button {
+				border: none;
+				background-color: transparent;
+				outline: none;
+				svg {
+					color: white;
+					width: 25px;
+					height: 25px;
+					margin-left: calc(#{$module} / 1);
+				}
+			}
+			.sub-menu {
+				background-color: white;
+				border-top: 4px solid map-get($theme-colors, 'primary');
+				position: absolute;
+				left: 0;
+				top: 150px;
+				height: 100vh;
+				width: 100vw;
+				display: none;
+				flex-direction: column;
+				align-items: center;
+				z-index: -1;
+
+				&.show {
+					display: flex;
+				}
+
+				a {
+					color: map-get($theme-colors, 'primary');
+					@include font-line-height(24px);
+					display: block;
+					padding: $module 0;
 				}
 			}
 		}
@@ -85,6 +156,9 @@
 		left: 0;
 		background-color: white;
 		border-bottom: 1px solid map-get($theme-colors, 'primary');
+		&.open-submenu {
+			background-color: white;
+		}
 		.container {
 			ul {
 				li {
@@ -105,6 +179,16 @@
 			}
 			#secondary-logo {
 				display: none;
+			}
+			button {
+				svg {
+					color: map-get($theme-colors, 'primary');
+				}
+			}
+			&.mobile {
+				.sub-menu {
+					top: 110px;
+				}
 			}
 		}
 		.rrss-buttons {
