@@ -9,15 +9,28 @@
 		top: 0;
 		left: 0;
 		@include bg-dots();
+		@include breakpoint(md-down) {
+			width: calc((100% / 12) * 12);
+		}
+		z-index: -1;
 	}
 	.container {
 		display: flex;
+		@include breakpoint(md-down) {
+			flex-direction: column-reverse;
+		}
 		.left,
 		.right {
 			padding: 0 $module;
 			width: calc((100% / 12) * 6);
+			@include breakpoint(md-down) {
+				width: calc((100% / 12) * 12);
+			}
 		}
 		.left {
+			@include breakpoint(md-down) {
+				height: 350px;
+			}
 			.swiper-container {
 				height: 100%;
 				width: 100%;
@@ -38,6 +51,11 @@
 			}
 		}
 		.right {
+			@include breakpoint(md-down) {
+				text-align: center;
+				background-color: white;
+				padding: $module;
+			}
 		}
 	}
 }
