@@ -3,10 +3,25 @@
 		display: flex;
 		flex-wrap: wrap;
 		.pswp-thumbnail {
-			@include items-grid(6, $module);
-			height: 170px;
 			overflow: hidden;
 			cursor: pointer;
+			@include breakpoint(xl-up) {
+				@include items-grid(6, $module);
+				height: 170px;
+			}
+			@include breakpoint(lg) {
+				height: 150px;
+				@include items-grid(5, $module);
+			}
+			@include breakpoint(md) {
+				height: 150px;
+				@include items-grid(4, $module);
+			}
+			@include breakpoint(sm-down) {
+				height: 180px;
+				@include items-grid(2, $module);
+			}
+
 			img {
 				height: 100%;
 				object-position: center;
