@@ -63,11 +63,11 @@ export const Contacto = ({ sections }) => {
 											elm !== 'mensaje' && (
 												<div key={idx} className='input-label'>
 													<label htmlFor={idx}>{elm}</label>
-													{elm === 'email' && <input type='email' name={elm} placeholder={elm} id={idx} required />}
-													{elm === 'tel' && <input type='phone' name={elm} placeholder={elm} id={idx} required />}
-													{elm === 'nombre' && <input type='text' name={elm} placeholder={elm} id={idx} required />}
-													{elm === 'apellidos' && <input type='text' name={elm} placeholder={elm} id={idx} required />}
-													{elm === 'empresa' && <input type='text' name={elm} placeholder={elm} id={idx} required />}
+													{elm === 'email' && <input type='email' name={elm} placeholder='Correo electrónico' id={idx} required />}
+													{elm === 'tel' && <input type='phone' name={elm} placeholder='Teléfono' id={idx} required />}
+													{elm === 'nombre' && <input type='text' name={elm} placeholder='Nombre' id={idx} required />}
+													{elm === 'apellidos' && <input type='text' name={elm} placeholder='Apellidos' id={idx} required />}
+													{elm === 'empresa' && <input type='text' name={elm} placeholder='Empresa' id={idx} required />}
 												</div>
 											)
 									)}
@@ -76,7 +76,7 @@ export const Contacto = ({ sections }) => {
 											elm === 'mensaje' && (
 												<div key={idx} className='input-textarea'>
 													<label htmlFor={idx}>{elm}</label>
-													<textarea type='text' name={elm} placeholder={elm} id={idx} required />
+													<textarea type='text' name={elm} placeholder='Mensaje' id={idx} required />
 												</div>
 											)
 									)}
