@@ -33,6 +33,10 @@ const NavBar = ({ clase, company }) => {
 		const subMenu = theNav.current.querySelector('.sub-menu')
 		subMenu.classList.toggle('show')
 	}
+	const hideMenu = () => {
+		const subMenu = theNav.current.querySelector('.sub-menu')
+		subMenu.classList.remove('show')
+	}
 
 	return (
 		<nav ref={theNav} className={`desktop-nav ${clase}`}>
@@ -135,37 +139,37 @@ const NavBar = ({ clase, company }) => {
 						</div>
 
 						<ul className='sub-menu'>
-							<li>
+							<li onClick={hideMenu}>
 								<Link href='/#historia'>
 									<a>Historia</a>
 								</Link>
 							</li>
-							<li>
+							<li onClick={hideMenu}>
 								<Link href='/#instalaciones'>
 									<a>Instalaciones</a>
 								</Link>
 							</li>
-							<li>
+							<li onClick={hideMenu}>
 								<Link href='/#trabajos'>
 									<a>Trabajos</a>
 								</Link>
 							</li>
-							<li>
+							<li onClick={hideMenu}>
 								<Link href='/parque-de-maquinaria'>
 									<a>Maquinaria</a>
 								</Link>
 							</li>
-							<li>
+							<li onClick={hideMenu}>
 								<Link href='/certificaciones'>
 									<a>Certificaciones</a>
 								</Link>
 							</li>
-							<li>
+							<li onClick={hideMenu}>
 								<Link href='/#ubicacion'>
 									<a>Ubicación</a>
 								</Link>
 							</li>
-							<li>
+							<li onClick={hideMenu}>
 								<Link href='/#contacto'>
 									<a>Contacto</a>
 								</Link>

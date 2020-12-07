@@ -13,6 +13,7 @@ header {
 		bottom: 0;
 		width: calc((100% / 12) * 6);
 		display: flex;
+		z-index: 2;
 		@include breakpoint(md-down) {
 			width: calc((100% / 12) * 12);
 		}
