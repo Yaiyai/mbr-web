@@ -1,0 +1,8 @@
+.terms {
+	label {
+		display: flex;
+		a {
+			margin-left: calc(#{$module} / 6);
+		}
+	}
+}

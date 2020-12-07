@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import emailjs from 'emailjs-com'
+import Link from 'next/link'
 import Modal from 'react-bootstrap/Modal'
 
 import Swal from 'sweetalert2'
@@ -82,7 +83,12 @@ export const Contacto = ({ sections }) => {
 									<div className='submit-accept'>
 										<div className='terms'>
 											<input id='terms' name='terms' type='checkbox' value='1' required />
-											<label htmlFor='terms'>Acepto términos y condiciones</label>
+											<label htmlFor='terms'>
+												Acepto la
+												<Link href='/politica-privacidad' target='new'>
+													<a>Política de Privacidad</a>
+												</Link>
+											</label>
 										</div>
 										<button type='submit' className='my-btn '>
 											Enviar consulta
