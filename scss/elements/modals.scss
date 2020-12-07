@@ -14,6 +14,19 @@
 	p {
 		margin-bottom: calc(#{$module} / 2);
 	}
+	&.video {
+		.modal-dialog {
+			max-width: none;
+			&.modal-dialog-centered {
+				justify-content: center;
+				.modal-content {
+					padding: 0;
+					width: auto;
+					max-height: auto;
+				}
+			}
+		}
+	}
 }
 .modal-width {
 	width: 50%;

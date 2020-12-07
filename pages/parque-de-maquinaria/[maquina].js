@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { getCompany } from '../../components/api/company'
 import { PhotoSwipeGallery } from 'react-photoswipe'
 import { useRouter } from 'next/router'
+import Modal from 'react-bootstrap/Modal'
 
 const apiURL = process.env.baseURL
 
@@ -17,12 +18,15 @@ const MaquinaSelected = () => {
 	const isMounted = useRef(true)
 	const [thisMaquina, setMaquina] = useState()
 	const [items, setItems] = useState()
+	const [videos, setvideos] = useState()
+	const [show, setShow] = useState(false)
+	const [videoID, setVideoID] = useState()
 
 	useEffect(() => {
 		return () => {
 			isMounted.current = false
 		}
-	}, [items])
+	}, [items, videos])
 
 	useEffect(() => {
 		if (isMounted.current) {
@@ -32,8 +36,10 @@ const MaquinaSelected = () => {
 				.catch((err) => console.log(err))
 
 			if (thisMaquina) {
+				const clean = thisMaquina.gallery.filter((elm) => elm.includes('jpg') || elm.includes('png'))
+				const cleanVideos = thisMaquina.gallery.filter((elm) => elm.includes('mp4') || elm.includes('mov'))
 				setItems(
-					thisMaquina.gallery.map((elm) => {
+					clean.map((elm) => {
 						return {
 							src: elm,
 							thumbnail: getThumbnails(elm),
@@ -42,9 +48,18 @@ const MaquinaSelected = () => {
 						}
 					})
 				)
+				setvideos(
+					cleanVideos.map((elm, idx) => {
+						return {
+							src: elm,
+							thumbnail: getThumbnails(elm),
+							id: `video${idx}`,
+						}
+					})
+				)
 			}
 		}
-	}, [maquinaId, thisMaquina, items])
+	}, [maquinaId, thisMaquina, items, videos])
 
 	const getThumbnails = (str) => {
 		if (str.includes('mp4')) {
@@ -63,9 +78,19 @@ const MaquinaSelected = () => {
 			return `${splitStr[0]}${newStr}${splitStr[1]}`
 		}
 	}
-
 	const getThumbnailContent = (item) => {
-		return <img src={item.thumbnail} />
+		if (item.src) {
+			return <img src={item.thumbnail} />
+		}
+	}
+
+	const handleModal = (video) => {
+		setVideoID(video)
+		setShow(true)
+	}
+
+	const showThisVideo = () => {
+		return <video className='each-video' src={videoID} controls muted />
 	}
 
 	return (
@@ -110,6 +135,21 @@ const MaquinaSelected = () => {
 						<section className='maquina-gallery container'>
 							<h2>Trabajos de esta máquina</h2>
 							{items && <PhotoSwipeGallery items={items} thumbnailContent={getThumbnailContent} />}
+							{videos?.length > 0 && (
+								<div>
+									<h2>Vídeos</h2>
+									<article className='media-section'>
+										{videos.map((elm) => (
+											<a key={elm.id} onClick={() => handleModal(elm.src)} className='each-media'>
+												<img src={elm.thumbnail} alt='' />
+											</a>
+										))}
+									</article>
+								</div>
+							)}
+							<Modal centered className='my-modals video' show={show} onHide={() => setShow(false)}>
+								{showThisVideo()}
+							</Modal>
 						</section>
 					)}
 				</BasicLayout>
