@@ -16,7 +16,8 @@
 	}
 	&.video {
 		.modal-dialog {
-			max-width: none;
+			max-width: 90%;
+
 			&.modal-dialog-centered {
 				justify-content: center;
 				.modal-content {
@@ -31,6 +32,12 @@
 .modal-width {
 	width: 50%;
 	max-width: none !important;
+	@include breakpoint(md) {
+		width: 70%;
+	}
+	@include breakpoint(sm-down) {
+		width: 90%;
+	}
 }
 .modal-backdrop.show {
 	background-color: map-get($theme-colors, 'text');

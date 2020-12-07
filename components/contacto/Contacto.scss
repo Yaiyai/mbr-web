@@ -20,14 +20,6 @@
 				@include breakpoint(md-down) {
 					padding: $module 0;
 				}
-				.terms {
-					label {
-						display: flex;
-						a {
-							margin-left: calc(#{$module} / 6);
-						}
-					}
-				}
 			}
 			.left {
 				.contact-feat {

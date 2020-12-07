@@ -43,9 +43,6 @@ form {
 			width: 100%;
 		}
 	}
-	.terms {
-		display: flex;
-	}
 	.input-textarea {
 		margin-right: 1%;
 		display: flex;
@@ -57,8 +54,28 @@ form {
 		display: flex;
 		flex-direction: row-reverse;
 		align-items: center;
+		@include breakpoint(md-down) {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+		}
 		.my-btn {
 			margin-right: calc(#{$module} / 2);
+			@include breakpoint(md-down) {
+				margin-right: 0;
+			}
+		}
+		.terms {
+			display: flex;
+			@include breakpoint(md-down) {
+				margin-bottom: $module;
+			}
+			label {
+				display: flex;
+				a {
+					margin-left: calc(#{$module} / 6);
+				}
+			}
 		}
 	}
 }
