@@ -1,5 +1,26 @@
 .trabajos {
 	padding: calc(#{$module} * 6) 0;
+	h3 {
+		text-transform: uppercase;
+		color: map-get($theme-colors, 'primary');
+		font-weight: $text-bold;
+		margin-top: calc(#{$module} * 1);
+		margin-bottom: calc(#{$module} * 1);
+	}
+	.media-section {
+		display: flex;
+		flex-wrap: wrap;
+		.each-media {
+			@include items-grid(6, $module);
+			height: 170px;
+			overflow: hidden;
+			img {
+				height: 100%;
+				object-fit: cover;
+				object-position: center;
+			}
+		}
+	}
 }
 .pswp {
 	img {
