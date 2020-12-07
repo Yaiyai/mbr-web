@@ -47,6 +47,9 @@ h2 {
 		left: 0;
 		background-color: map-get($theme-colors, 'secondary');
 	}
+	@include breakpoint(xl) {
+		@include font-line-height(58px);
+	}
 }
 h3 {
 	font-size: ($h3-size);
