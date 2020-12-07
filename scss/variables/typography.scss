@@ -75,3 +75,26 @@ p {
 	@include font-line-height($font-lg);
 	font-weight: $text-semibold;
 }
+
+//Text Editor
+.text-editor {
+	.ql-size-large {
+		text-transform: uppercase;
+		color: map-get($theme-colors, 'primary');
+		@include font-line-height($font-lg);
+		font-weight: $text-semibold;
+	}
+	strong {
+		font-weight: $text-semibold;
+	}
+	ul {
+		li {
+			&::before {
+				content: '\00bb';
+				margin-right: calc(#{$module} / 4);
+				font-weight: $text-semibold;
+				color: map-get($theme-colors, 'primary');
+			}
+		}
+	}
+}

@@ -38,6 +38,11 @@ const Footer = ({ company }) => {
 									<a>Maquinaria</a>
 								</Link>
 							</li>
+							<li>
+								<Link href='/certificaciones'>
+									<a>Certificaciones</a>
+								</Link>
+							</li>
 						</ul>
 					</div>
 					<div className='second'>
@@ -51,6 +56,11 @@ const Footer = ({ company }) => {
 							<li>
 								<Link href='/parque-de-maquinaria'>
 									<a>Maquinaria</a>
+								</Link>
+							</li>
+							<li>
+								<Link href='/subvenciones'>
+									<a>Subvenciones</a>
 								</Link>
 							</li>
 						</ul>
@@ -69,13 +79,19 @@ const Footer = ({ company }) => {
 						<p>Condiciones Legales</p>
 						<ul>
 							<li>
-								<a>Política de Privacidad</a>
+								<Link href='/politica-privacidad'>
+									<a>Política de Privacidad</a>
+								</Link>
 							</li>
 							<li>
-								<a>Términos y condiciones</a>
+								<Link href='/aviso-legal'>
+									<a>Aviso Legal</a>
+								</Link>
 							</li>
 							<li>
-								<a>Cookies</a>
+								<Link href='/cookies'>
+									<a>Política de Cookies</a>
+								</Link>
 							</li>
 						</ul>
 					</div>
