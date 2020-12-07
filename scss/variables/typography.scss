@@ -47,6 +47,29 @@ h2 {
 		left: 0;
 		background-color: map-get($theme-colors, 'secondary');
 	}
+	@include breakpoint(xl) {
+		@include font-line-height(58px);
+	}
+	@include breakpoint(lg) {
+		@include font-line-height(50px);
+		margin-bottom: calc(#{$module} * 1);
+	}
+	@include breakpoint(md-down) {
+		margin-bottom: calc(#{$module} * 1);
+		text-align: center;
+		&::after {
+			display: none;
+		}
+	}
+	@include breakpoint(md) {
+		@include font-line-height(50px);
+	}
+	@include breakpoint(sm) {
+		@include font-line-height(40px);
+	}
+	@include breakpoint(xs) {
+		@include font-line-height(40px);
+	}
 }
 h3 {
 	font-size: ($h3-size);
@@ -68,12 +91,21 @@ p {
 	font-size: ($font-base);
 	letter-spacing: 1.33px;
 	font-weight: $text-light;
+	@include breakpoint(lg-down) {
+		@include font-line-height($font-sm);
+	}
 }
 .subtitle {
 	text-transform: uppercase;
 	color: map-get($theme-colors, 'primary');
 	@include font-line-height($font-lg);
 	font-weight: $text-semibold;
+	@include breakpoint(lg-down) {
+		@include font-line-height($font-md);
+	}
+	@include breakpoint(md-down) {
+		text-align: center;
+	}
 }
 
 //Text Editor

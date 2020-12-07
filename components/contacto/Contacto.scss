@@ -4,12 +4,22 @@
 	.container {
 		.fix {
 			display: flex;
+			@include breakpoint(md-down) {
+				flex-direction: column;
+			}
 			.left,
 			.right {
 				width: calc((100% / 12) * 6);
+				@include breakpoint(md-down) {
+					width: calc((100% / 12) * 12);
+					text-align: center;
+				}
 			}
 			.right {
 				padding-left: $module;
+				@include breakpoint(md-down) {
+					padding: $module 0;
+				}
 			}
 			.left {
 				.contact-feat {

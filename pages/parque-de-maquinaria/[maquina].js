@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Head from 'next/head'
 import BasicLayout from '../../layouts/BasicLayout'
-import { faCheckCircle, faAngleDoubleLeft } from '@fortawesome/free-solid-svg-icons'
+import { faCheckCircle, faAngleDoubleLeft, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import { PageHeader } from '../../components/page-header/PageHeader'
 import Link from 'next/link'
 import { getCompany } from '../../components/api/company'
@@ -148,6 +149,10 @@ const MaquinaSelected = () => {
 								</div>
 							)}
 							<Modal centered className='my-modals video' show={show} onHide={() => setShow(false)}>
+								<button className='close-btn' onClick={() => setShow(false)}>
+									Cerrar
+									<FontAwesomeIcon icon={faTimesCircle} />
+								</button>
 								{showThisVideo()}
 							</Modal>
 						</section>

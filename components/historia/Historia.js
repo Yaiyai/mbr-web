@@ -29,6 +29,14 @@ export const Historia = ({ sections }) => {
 					<div className='container'>
 						<div className='left'>
 							<Swiper
+								breakpoints={{
+									992: {
+										slidesPerView: 1,
+									},
+									0: {
+										slidesPerView: 1,
+									},
+								}}
 								spaceBetween={0}
 								autoplay={{
 									delay: 2500,

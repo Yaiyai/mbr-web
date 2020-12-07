@@ -18,10 +18,16 @@
 	padding-bottom: calc(#{$module} * 4);
 
 	.each-maquina {
-		@include items-grid(2, $module);
-		height: calc(#{$module} * 10);
 		@include bg-dots();
 		padding: $module;
+		@include breakpoint(lg-up) {
+			@include items-grid(2, $module);
+			height: calc(#{$module} * 10);
+		}
+		@include breakpoint(md-down) {
+			@include items-grid(1, $module);
+			height: calc(#{$module} * 10);
+		}
 		.inner {
 			background-color: white;
 			width: 100%;
@@ -33,6 +39,9 @@
 				height: 100%;
 				overflow: hidden;
 				margin-bottom: 0;
+				@include breakpoint(sm-down) {
+					width: calc((100% / 12) * 6);
+				}
 				img {
 					object-fit: contain;
 					object-position: center;
@@ -45,11 +54,18 @@
 				display: flex;
 				flex-direction: column;
 				justify-content: space-between;
+				@include breakpoint(sm-down) {
+					width: calc((100% / 12) * 6);
+					padding-left: calc(#{$module} / 2);
+				}
 				.maquina-name {
 					@include font-line-height($font-lg);
 					text-transform: uppercase;
 					font-weight: $text-semibold;
 					color: map-get($theme-colors, 'primary');
+					@include breakpoint(sm-down) {
+						@include font-line-height($font-md);
+					}
 				}
 				.my-btn {
 					align-self: flex-end;
@@ -63,14 +79,26 @@
 	display: flex;
 	padding-bottom: calc(#{$module} * 4);
 	align-items: center;
+	@include breakpoint(md-down) {
+		flex-direction: column;
+	}
 
 	.left {
 		width: calc((100% / 12) * 6);
+		@include breakpoint(md-down) {
+			width: calc((100% / 12) * 12);
+		}
 	}
 	.right {
 		width: calc((100% / 12) * 6);
+		@include breakpoint(md-down) {
+			width: calc((100% / 12) * 12);
+		}
 		.features {
 			padding-left: calc(#{$module} * 2);
+			@include breakpoint(md-down) {
+				padding-left: 0;
+			}
 			li {
 				margin-bottom: calc(#{$module} * 1);
 				svg {
@@ -110,9 +138,23 @@
 		display: flex;
 		flex-wrap: wrap;
 		.each-media {
-			@include items-grid(6, $module);
-			height: 170px;
 			overflow: hidden;
+			@include breakpoint(xl-up) {
+				@include items-grid(6, $module);
+				height: 170px;
+			}
+			@include breakpoint(lg) {
+				height: 150px;
+				@include items-grid(5, $module);
+			}
+			@include breakpoint(md) {
+				height: 150px;
+				@include items-grid(4, $module);
+			}
+			@include breakpoint(sm-down) {
+				height: 180px;
+				@include items-grid(2, $module);
+			}
 			img {
 				height: 100%;
 				object-fit: cover;

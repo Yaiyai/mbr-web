@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import emailjs from 'emailjs-com'
+import Link from 'next/link'
 import Modal from 'react-bootstrap/Modal'
 
 import Swal from 'sweetalert2'
@@ -62,11 +63,11 @@ export const Contacto = ({ sections }) => {
 											elm !== 'mensaje' && (
 												<div key={idx} className='input-label'>
 													<label htmlFor={idx}>{elm}</label>
-													{elm === 'email' && <input type='email' name={elm} placeholder={elm} id={idx} required />}
-													{elm === 'tel' && <input type='phone' name={elm} placeholder={elm} id={idx} required />}
-													{elm === 'nombre' && <input type='text' name={elm} placeholder={elm} id={idx} required />}
-													{elm === 'apellidos' && <input type='text' name={elm} placeholder={elm} id={idx} required />}
-													{elm === 'empresa' && <input type='text' name={elm} placeholder={elm} id={idx} required />}
+													{elm === 'email' && <input type='email' name={elm} placeholder='Correo electrónico' id={idx} required />}
+													{elm === 'tel' && <input type='phone' name={elm} placeholder='Teléfono' id={idx} required />}
+													{elm === 'nombre' && <input type='text' name={elm} placeholder='Nombre' id={idx} required />}
+													{elm === 'apellidos' && <input type='text' name={elm} placeholder='Apellidos' id={idx} required />}
+													{elm === 'empresa' && <input type='text' name={elm} placeholder='Empresa' id={idx} required />}
 												</div>
 											)
 									)}
@@ -75,14 +76,19 @@ export const Contacto = ({ sections }) => {
 											elm === 'mensaje' && (
 												<div key={idx} className='input-textarea'>
 													<label htmlFor={idx}>{elm}</label>
-													<textarea type='text' name={elm} placeholder={elm} id={idx} required />
+													<textarea type='text' name={elm} placeholder='Mensaje' id={idx} required />
 												</div>
 											)
 									)}
 									<div className='submit-accept'>
 										<div className='terms'>
 											<input id='terms' name='terms' type='checkbox' value='1' required />
-											<label htmlFor='terms'>Acepto términos y condiciones</label>
+											<label htmlFor='terms'>
+												Acepto la
+												<Link href='/politica-privacidad' target='new'>
+													<a>Política de Privacidad</a>
+												</Link>
+											</label>
 										</div>
 										<button type='submit' className='my-btn '>
 											Enviar consulta

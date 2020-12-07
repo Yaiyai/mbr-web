@@ -13,6 +13,9 @@ header {
 		bottom: 0;
 		width: calc((100% / 12) * 6);
 		display: flex;
+		@include breakpoint(md-down) {
+			width: calc((100% / 12) * 12);
+		}
 		#instalaciones-btn {
 			width: calc((100% / 12) * 5);
 			height: 100%;
@@ -26,6 +29,13 @@ header {
 			letter-spacing: 1.33px;
 			line-height: 25px;
 			padding: calc(#{$module} * 2) 0;
+			@include breakpoint(lg) {
+				padding: calc(#{$module} * 1.5) 0;
+			}
+			@include breakpoint(md-down) {
+				padding: calc(#{$module} * 1) 0;
+				width: calc((100% / 12) * 6);
+			}
 		}
 		#maquinaria-btn {
 			font-size: $font-base;
@@ -40,15 +50,32 @@ header {
 			text-align: center;
 			vertical-align: center;
 			text-transform: uppercase;
+			@include breakpoint(lg) {
+				padding: calc(#{$module} * 1.5) 0;
+			}
+			@include breakpoint(md-down) {
+				width: calc((100% / 12) * 6);
+				padding: calc(#{$module} * 1) 0;
+			}
 		}
 	}
 
 	.container {
 		display: flex;
 		height: 100%;
+		@include breakpoint(md-down) {
+			position: relative;
+		}
 		.img-content {
 			position: relative;
 			width: calc((100% / 12) * 6);
+			@include breakpoint(md-down) {
+				height: 300px;
+				position: absolute;
+				width: calc((100% / 12) * 12);
+				z-index: 0;
+			}
+
 			figure {
 				position: absolute;
 				top: 0;
@@ -61,6 +88,22 @@ header {
 					object-fit: contain;
 					object-position: center;
 				}
+				@include breakpoint(xl) {
+					left: calc(#{$module} * (-10));
+				}
+				@include breakpoint(lg) {
+					left: calc(#{$module} * (-6));
+					width: 110%;
+				}
+				@include breakpoint(md) {
+					left: 0;
+					width: 100%;
+				}
+				@include breakpoint(sm-down) {
+					left: 0;
+					width: 90%;
+					top: calc(#{$module} * 2);
+				}
 			}
 		}
 		.right-side {
@@ -68,6 +111,10 @@ header {
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
+			@include breakpoint(md-down) {
+				width: calc((100% / 12) * 12);
+				z-index: 1;
+			}
 			.text-content {
 				width: 100%;
 				color: white;
@@ -82,6 +129,24 @@ header {
 					letter-spacing: 8px;
 					font-size: 96px;
 					font-weight: $text-bold;
+					@include breakpoint(xl) {
+						font-size: 80px;
+					}
+					@include breakpoint(lg) {
+						font-size: 70px;
+					}
+					@include breakpoint(md) {
+						font-size: 55px;
+					}
+					@include breakpoint(md-down) {
+						text-align: center;
+					}
+					@include breakpoint(sm) {
+						font-size: 60px;
+					}
+					@include breakpoint(xs) {
+						font-size: 40px;
+					}
 				}
 				.header-subtitle {
 					color: white;
@@ -91,6 +156,27 @@ header {
 					line-height: 50px;
 					&::after {
 						display: none;
+					}
+					@include breakpoint(xl) {
+						line-height: 35px;
+					}
+					@include breakpoint(lg) {
+						line-height: 35px;
+					}
+					@include breakpoint(md) {
+						line-height: 30px;
+						font-size: 24px;
+					}
+					@include breakpoint(md-down) {
+						text-align: center;
+					}
+					@include breakpoint(sm) {
+						line-height: 24px;
+						font-size: 24px;
+					}
+					@include breakpoint(xs) {
+						line-height: 24px;
+						font-size: 16px;
 					}
 				}
 			}

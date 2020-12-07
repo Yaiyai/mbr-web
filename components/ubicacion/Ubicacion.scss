@@ -10,6 +10,9 @@
 		right: 0;
 		@include bg-dots();
 		z-index: -1;
+		@include breakpoint(md-down) {
+			display: none;
+		}
 	}
 	.container {
 		background-color: white;
@@ -18,16 +21,30 @@
 			position: absolute;
 			background-color: white;
 			left: 0;
-			top: calc(#{$module} * 6);
+			top: calc(#{$module} * 1);
 			padding: calc(#{$module} * 1);
+			@include breakpoint(md-down) {
+				position: static;
+				padding-bottom: 0;
+				margin-bottom: 0;
+			}
 		}
 		.content {
 			display: flex;
 			.left {
 				width: calc((100% / 12) * 6);
-				height: 750px;
+				height: 650px;
 				overflow: hidden;
 				margin-bottom: 0;
+				@include breakpoint(xl) {
+					height: 550px;
+				}
+				@include breakpoint(lg) {
+					height: 550px;
+				}
+				@include breakpoint(md-down) {
+					display: none;
+				}
 				img {
 					object-fit: cover;
 					object-position: center;
@@ -36,10 +53,16 @@
 			}
 			.right {
 				width: calc((100% / 12) * 6);
-				padding: calc(#{$module} * 6) $module;
+				padding: $module;
+				height: inherit;
 				display: flex;
 				flex-direction: column;
 				justify-content: space-between;
+				@include breakpoint(md-down) {
+					height: auto;
+					width: calc((100% / 12) * 12);
+					text-align: center;
+				}
 				.company-info {
 					h3 {
 						color: map-get($theme-colors, 'dark-primary');
@@ -47,11 +70,17 @@
 						font-weight: $text-semibold;
 						position: relative;
 						letter-spacing: 0;
+						@include breakpoint(md-down) {
+							@include font-line-height(30px);
+						}
 					}
 					h4 {
 						color: map-get($theme-colors, 'text');
 						letter-spacing: 0;
 						@include font-line-height(30px);
+						@include breakpoint(md-down) {
+							@include font-line-height(14px);
+						}
 					}
 				}
 			}

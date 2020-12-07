@@ -16,13 +16,26 @@
 	}
 	&.video {
 		.modal-dialog {
-			max-width: none;
+			height: auto;
+			max-width: 40%;
+			@include breakpoint(xl) {
+				max-width: 50%;
+			}
+			@include breakpoint(lg) {
+				max-width: 60%;
+			}
+			@include breakpoint(md) {
+				max-width: 70%;
+			}
+			@include breakpoint(sm-down) {
+				max-width: 95%;
+			}
 			&.modal-dialog-centered {
 				justify-content: center;
 				.modal-content {
 					padding: 0;
-					width: auto;
-					max-height: auto;
+					background-color: black;
+					border: none;
 				}
 			}
 		}
@@ -31,8 +44,35 @@
 .modal-width {
 	width: 50%;
 	max-width: none !important;
+	@include breakpoint(md) {
+		width: 70%;
+	}
+	@include breakpoint(sm-down) {
+		width: 90%;
+	}
 }
 .modal-backdrop.show {
 	background-color: map-get($theme-colors, 'text');
 	backdrop-filter: blur(10px);
+}
+.close-btn {
+	background-color: transparent;
+	border: none;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	outline: none;
+	margin-bottom: calc(#{$module} / 2);
+	color: white;
+	margin-top: calc(#{$module} / 2);
+	margin-right: calc(#{$module} / 2);
+	&:focus {
+		outline: none;
+	}
+	svg {
+		margin-left: calc(#{$module} * 0.5);
+		width: calc(#{$module} * 1) !important;
+		height: calc(#{$module} * 1);
+		color: white;
+	}
 }

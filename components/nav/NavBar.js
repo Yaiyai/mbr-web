@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-import Container from 'react-bootstrap/Container'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookSquare, faInstagramSquare, faLinkedin, faTwitterSquare } from '@fortawesome/free-brands-svg-icons'
-
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 const NavBar = ({ clase, company }) => {
 	const [theHeight, setHeight] = useState(0)
 	const isMounted = useRef(true)
@@ -29,11 +28,96 @@ const NavBar = ({ clase, company }) => {
 		}
 	}
 
+	const showMenu = () => {
+		theNav.current.classList.toggle('open-submenu')
+		const subMenu = theNav.current.querySelector('.sub-menu')
+		subMenu.classList.toggle('show')
+	}
+
 	return (
 		<nav ref={theNav} className={`desktop-nav ${clase}`}>
 			{theCompany && (
-				<Container>
-					<div>
+				<>
+					<div className='desktop container'>
+						<div>
+							<Link href='/'>
+								<a id='main-logo' className='nav-logo'>
+									<img src={theCompany.mainLogo} alt='' />
+								</a>
+							</Link>
+							<Link href='/'>
+								<a id='secondary-logo' className='nav-logo'>
+									<img src={theCompany.secondaryLogo} alt='' />
+								</a>
+							</Link>
+							<ul className='left'>
+								<li>
+									<Link href='/#historia'>
+										<a>Historia</a>
+									</Link>
+								</li>
+								<li>
+									<Link href='/#instalaciones'>
+										<a>Instalaciones</a>
+									</Link>
+								</li>
+								<li>
+									<Link href='/#trabajos'>
+										<a>Trabajos</a>
+									</Link>
+								</li>
+								<li>
+									<Link href='/parque-de-maquinaria'>
+										<a>Maquinaria</a>
+									</Link>
+								</li>
+								<li>
+									<Link href='/certificaciones'>
+										<a>Certificaciones</a>
+									</Link>
+								</li>
+							</ul>
+						</div>
+						<div>
+							<ul className='right'>
+								<li>
+									<Link href='/#contacto'>
+										<a>Contacto</a>
+									</Link>
+								</li>
+								<li>
+									<Link href='/#ubicacion'>
+										<a>Ubicación</a>
+									</Link>
+								</li>
+							</ul>
+							{(theCompany.twitter || theCompany.facebook || theCompany.linkedin || theCompany.instagram) && (
+								<ul className='rrss-buttons'>
+									{theCompany.facebook && (
+										<a href={theCompany.facebook} className='rrss-icon' target='new'>
+											<FontAwesomeIcon icon={faFacebookSquare} />
+										</a>
+									)}
+									{theCompany.twitter && (
+										<a href={theCompany.twitter} className='rrss-icon' target='new'>
+											<FontAwesomeIcon icon={faTwitterSquare} />
+										</a>
+									)}
+									{theCompany.instagram && (
+										<a href={theCompany.instagram} className='rrss-icon' target='new'>
+											<FontAwesomeIcon icon={faInstagramSquare} />
+										</a>
+									)}
+									{theCompany.linkedin && (
+										<a href={theCompany.linkedin} className='rrss-icon' target='new'>
+											<FontAwesomeIcon icon={faLinkedin} />
+										</a>
+									)}
+								</ul>
+							)}
+						</div>
+					</div>
+					<div className='mobile container'>
 						<Link href='/'>
 							<a id='main-logo' className='nav-logo'>
 								<img src={theCompany.mainLogo} alt='' />
@@ -44,7 +128,13 @@ const NavBar = ({ clase, company }) => {
 								<img src={theCompany.secondaryLogo} alt='' />
 							</a>
 						</Link>
-						<ul className='left'>
+						<div className='fix'>
+							<button onClick={showMenu}>
+								<FontAwesomeIcon icon={faBars} />
+							</button>
+						</div>
+
+						<ul className='sub-menu'>
 							<li>
 								<Link href='/#historia'>
 									<a>Historia</a>
@@ -70,47 +160,43 @@ const NavBar = ({ clase, company }) => {
 									<a>Certificaciones</a>
 								</Link>
 							</li>
-						</ul>
-					</div>
-					<div>
-						<ul className='right'>
-							<li>
-								<Link href='/#contacto'>
-									<a>Contacto</a>
-								</Link>
-							</li>
 							<li>
 								<Link href='/#ubicacion'>
 									<a>Ubicación</a>
 								</Link>
 							</li>
+							<li>
+								<Link href='/#contacto'>
+									<a>Contacto</a>
+								</Link>
+							</li>
+							{(theCompany.twitter || theCompany.facebook || theCompany.linkedin || theCompany.instagram) && (
+								<ul className='rrss-buttons'>
+									{theCompany.facebook && (
+										<a href={theCompany.facebook} className='rrss-icon' target='new'>
+											<FontAwesomeIcon icon={faFacebookSquare} />
+										</a>
+									)}
+									{theCompany.twitter && (
+										<a href={theCompany.twitter} className='rrss-icon' target='new'>
+											<FontAwesomeIcon icon={faTwitterSquare} />
+										</a>
+									)}
+									{theCompany.instagram && (
+										<a href={theCompany.instagram} className='rrss-icon' target='new'>
+											<FontAwesomeIcon icon={faInstagramSquare} />
+										</a>
+									)}
+									{theCompany.linkedin && (
+										<a href={theCompany.linkedin} className='rrss-icon' target='new'>
+											<FontAwesomeIcon icon={faLinkedin} />
+										</a>
+									)}
+								</ul>
+							)}
 						</ul>
-						{(theCompany.twitter || theCompany.facebook || theCompany.linkedin || theCompany.instagram) && (
-							<ul className='rrss-buttons'>
-								{theCompany.facebook && (
-									<a href={theCompany.facebook} className='rrss-icon' target='new'>
-										<FontAwesomeIcon icon={faFacebookSquare} />
-									</a>
-								)}
-								{theCompany.twitter && (
-									<a href={theCompany.twitter} className='rrss-icon' target='new'>
-										<FontAwesomeIcon icon={faTwitterSquare} />
-									</a>
-								)}
-								{theCompany.instagram && (
-									<a href={theCompany.instagram} className='rrss-icon' target='new'>
-										<FontAwesomeIcon icon={faInstagramSquare} />
-									</a>
-								)}
-								{theCompany.linkedin && (
-									<a href={theCompany.linkedin} className='rrss-icon' target='new'>
-										<FontAwesomeIcon icon={faLinkedin} />
-									</a>
-								)}
-							</ul>
-						)}
 					</div>
-				</Container>
+				</>
 			)}
 		</nav>
 	)
