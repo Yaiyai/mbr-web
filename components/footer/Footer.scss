@@ -4,9 +4,21 @@ footer {
 	color: white;
 	.navs {
 		display: flex;
+		flex-wrap: wrap;
 		justify-content: space-between;
 		font-weight: $text-light;
 		margin-bottom: $module;
+		.each-nav {
+			@include breakpoint(md-up) {
+				@include items-grid(4, $module);
+			}
+			@include breakpoint(sm) {
+				@include items-grid(2, $module);
+			}
+			@include breakpoint(xs) {
+				@include items-grid(2, $module);
+			}
+		}
 		p {
 			text-transform: uppercase;
 			position: relative;
@@ -42,6 +54,7 @@ footer {
 			height: 50px;
 		}
 		.rrss-buttons {
+			display: flex;
 			.rrss-icon {
 				margin-left: calc(#{$module} / 3);
 				color: map-get($theme-colors, 'primary');

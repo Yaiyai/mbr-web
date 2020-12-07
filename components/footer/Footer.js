@@ -20,7 +20,7 @@ const Footer = ({ company }) => {
 		<footer>
 			<Container>
 				<article className='navs'>
-					<div className='first'>
+					<div className='first each-nav'>
 						<p>Nosotros</p>
 						<ul>
 							<li>
@@ -45,7 +45,7 @@ const Footer = ({ company }) => {
 							</li>
 						</ul>
 					</div>
-					<div className='second'>
+					<div className='second each-nav'>
 						<p>Maquinaria</p>
 						<ul>
 							<li>
@@ -65,7 +65,7 @@ const Footer = ({ company }) => {
 							</li>
 						</ul>
 					</div>
-					<div className='third'>
+					<div className='third each-nav'>
 						<p>Trabajos</p>
 						<ul>
 							<li>
@@ -75,8 +75,8 @@ const Footer = ({ company }) => {
 							</li>
 						</ul>
 					</div>
-					<div className='fourth'>
-						<p>Condiciones Legales</p>
+					<div className='fourth each-nav'>
+						<p>Condiciones</p>
 						<ul>
 							<li>
 								<Link href='/politica-privacidad'>
