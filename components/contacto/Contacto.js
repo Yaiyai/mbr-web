@@ -93,7 +93,7 @@ export const Contacto = ({ sections }) => {
 						</div>
 					</div>
 					<Modal dialogClassName='modal-width' centered className='my-modals' show={show} onHide={() => setShow(false)}>
-						<Cv sections={sections} />
+						<Cv sections={sections} setShow={setShow} />
 					</Modal>
 				</section>
 			)}

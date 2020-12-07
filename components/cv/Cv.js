@@ -3,7 +3,7 @@ import emailjs from 'emailjs-com'
 import Swal from 'sweetalert2'
 import Modal from 'react-bootstrap/Modal'
 
-export const Cv = ({ sections }) => {
+export const Cv = ({ sections, setShow }) => {
 	const isMounted = useRef(true)
 	const [cv, setCv] = useState()
 
@@ -18,7 +18,7 @@ export const Cv = ({ sections }) => {
 	const sendEmailCV = (e) => {
 		e.preventDefault()
 		emailjs
-			.sendForm(process.env.serviceEmail, process.env.templateEmailCV, e.target, process.env.userEmail)
+			.sendForm(process.env.serviceEmailCV, process.env.templateEmailCV, e.target, process.env.userEmail)
 			.then((result) => {
 				Swal.fire({
 					title: '¡Gracias!',
@@ -26,6 +26,7 @@ export const Cv = ({ sections }) => {
 					confirmButtonText: 'Cerrar',
 				})
 			})
+			.then(() => setShow(false))
 			.catch((error) => console.log(error.text))
 	}
 
@@ -36,7 +37,7 @@ export const Cv = ({ sections }) => {
 					<Modal.Body>
 						<h2>{cv.title}</h2>
 						<p>{cv.text}</p>
-						<form onSubmit={sendEmailCV}>
+						<form encType='multipart/form-data' method='post' onSubmit={sendEmailCV}>
 							{cv?.formInputs.map(
 								(elm) =>
 									elm !== 'mensaje' && (
@@ -46,7 +47,7 @@ export const Cv = ({ sections }) => {
 											{elm === 'tel' && <input type='phone' name={elm} placeholder={elm} id={elm} required />}
 											{elm === 'nombre' && <input type='text' name={elm} placeholder={elm} id={elm} required />}
 											{elm === 'apellidos' && <input type='text' name={elm} placeholder={elm} id={elm} required />}
-											{elm === 'cv' && <input type='text' name={elm} placeholder={elm} id={elm} required />}
+											{elm === 'cv' && <input type='file' name={elm} placeholder={elm} id={elm} required />}
 										</div>
 									)
 							)}
@@ -54,7 +55,7 @@ export const Cv = ({ sections }) => {
 								(elm) =>
 									elm === 'mensaje' && (
 										<div key={elm} className='input-textarea'>
-											<label htmlFor={elm}>{elm}</label>
+											<label htmlFor={elm}>¿Por qué quiere trabajar con nosotros?</label>
 											<textarea type='text' name={elm} placeholder={elm} id={elm} required />
 										</div>
 									)
