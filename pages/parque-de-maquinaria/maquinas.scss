@@ -18,10 +18,16 @@
 	padding-bottom: calc(#{$module} * 4);
 
 	.each-maquina {
-		@include items-grid(2, $module);
-		height: calc(#{$module} * 10);
 		@include bg-dots();
 		padding: $module;
+		@include breakpoint(lg-up) {
+			@include items-grid(2, $module);
+			height: calc(#{$module} * 10);
+		}
+		@include breakpoint(md-down) {
+			@include items-grid(1, $module);
+			height: calc(#{$module} * 10);
+		}
 		.inner {
 			background-color: white;
 			width: 100%;
@@ -33,6 +39,9 @@
 				height: 100%;
 				overflow: hidden;
 				margin-bottom: 0;
+				@include breakpoint(sm-down) {
+					width: calc((100% / 12) * 6);
+				}
 				img {
 					object-fit: contain;
 					object-position: center;
@@ -45,11 +54,18 @@
 				display: flex;
 				flex-direction: column;
 				justify-content: space-between;
+				@include breakpoint(sm-down) {
+					width: calc((100% / 12) * 6);
+					padding-left: calc(#{$module} / 2);
+				}
 				.maquina-name {
 					@include font-line-height($font-lg);
 					text-transform: uppercase;
 					font-weight: $text-semibold;
 					color: map-get($theme-colors, 'primary');
+					@include breakpoint(sm-down) {
+						@include font-line-height($font-md);
+					}
 				}
 				.my-btn {
 					align-self: flex-end;
