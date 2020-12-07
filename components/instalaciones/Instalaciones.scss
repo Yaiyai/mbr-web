@@ -10,10 +10,16 @@
 		left: 0;
 		@include bg-dots();
 		z-index: -1;
+		@include breakpoint(md-down) {
+			width: calc((100% / 12) * 12);
+		}
 	}
 	.swiper-container {
 		height: calc(#{$module} * 30);
 		width: 100%;
+		@include breakpoint(md-down) {
+			height: calc(#{$module} * 15);
+		}
 		.swiper-wrapper {
 			height: 100%;
 			width: 100%;
@@ -33,23 +39,32 @@
 		background-color: white;
 		width: calc((100% / 12) * 5.5);
 		padding: $module calc(#{$module});
+		@include breakpoint(md-down) {
+			width: calc((100% / 12) * 12);
+		}
 	}
 	.plantas {
 		display: flex;
 		justify-content: space-between;
 		padding-top: calc(#{$module} * 4);
+		@include breakpoint(md-down) {
+			flex-direction: column;
+		}
 		.left,
 		.right {
 			width: calc((100% / 12) * 5);
 			background-color: white;
 			padding: calc(#{$module} * 2);
-			svg {
-				margin-right: calc(#{$module} / 3);
-				color: map-get($theme-colors, 'primary');
+			@include breakpoint(md-down) {
+				width: calc((100% / 12) * 12);
 			}
 		}
 		.right {
 			border: 1px solid map-get($theme-colors, 'primary');
+			@include breakpoint(md-down) {
+				border: none;
+				margin-top: calc(#{$module} * 1);
+			}
 		}
 	}
 }
