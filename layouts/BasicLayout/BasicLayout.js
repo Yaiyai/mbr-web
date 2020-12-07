@@ -11,6 +11,7 @@ const BasicLayout = (props) => {
 	return (
 		<>
 			<Head>
+				<script src='https://cmp.osano.com/6oljJSIUNV9r1ZFS/3dbe5f87-28e9-45af-92b7-6da4839bd0e2/osano.js'></script>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			{location == 'index' ? <NavBar company={companyFetched} clase={'nav-index'} /> : <NavBar company={companyFetched} clase={'nav-normal'} />}
