@@ -39,8 +39,8 @@ const Footer = ({ company }) => {
 								</Link>
 							</li>
 							<li>
-								<Link href='/certificaciones'>
-									<a>Certificaciones</a>
+								<Link href='/calidad'>
+									<a>Calidad</a>
 								</Link>
 							</li>
 						</ul>
