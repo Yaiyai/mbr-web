@@ -76,7 +76,12 @@ const NavBar = ({ clase, company }) => {
 									</Link>
 								</li>
 								<li>
-									<Link href='/certificaciones'>
+									<Link href='/calidad'>
+										<a>Calidad</a>
+									</Link>
+								</li>
+								<li>
+									<Link href='/calidad#certificaciones'>
 										<a>Certificaciones</a>
 									</Link>
 								</li>
@@ -160,7 +165,12 @@ const NavBar = ({ clase, company }) => {
 								</Link>
 							</li>
 							<li onClick={hideMenu}>
-								<Link href='/certificaciones'>
+								<Link href='/calidad'>
+									<a>Calidad</a>
+								</Link>
+							</li>
+							<li onClick={hideMenu}>
+								<Link href='/calidad#certificaciones'>
 									<a>Certificaciones</a>
 								</Link>
 							</li>

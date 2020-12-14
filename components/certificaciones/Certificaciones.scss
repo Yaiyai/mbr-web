@@ -1,5 +1,5 @@
 .certificaciones {
-	padding-bottom: calc(#{$module} * 4);
+	padding: calc(#{$module} * 5) 0 calc(#{$module} * 4);
 	.all-certs {
 		display: flex;
 		flex-wrap: wrap;
@@ -16,3 +16,5 @@
 		}
 	}
 }
+
+@import './content/Content.scss';

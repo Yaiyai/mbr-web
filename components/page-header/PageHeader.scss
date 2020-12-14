@@ -12,6 +12,7 @@
 	.container {
 		display: flex;
 		justify-content: center;
+		flex-direction: column;
 		.header-subtitle {
 			display: block;
 			text-align: center;
@@ -21,9 +22,24 @@
 			text-transform: uppercase;
 			letter-spacing: 4px;
 			font-weight: $text-bold;
+			margin: 0;
 			&::after {
 				display: none;
 			}
+			@include breakpoint(sm-down) {
+				@include font-line-height(28px);
+			}
+		}
+		h3 {
+			display: block;
+			text-align: center;
+			@include font-line-height($h3-size);
+			color: white;
+			text-shadow: 1px 0px 0px map-get($theme-colors, 'primary');
+			text-transform: uppercase;
+			letter-spacing: 4px;
+			font-weight: $text-semibold;
+			margin: 0;
 		}
 	}
 }

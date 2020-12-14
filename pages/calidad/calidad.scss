@@ -1,0 +1,14 @@
+.calidad {
+	padding-bottom: calc(#{$module} * 4);
+	.each-cert {
+		width: calc(#{$module} * 25);
+		height: 750px;
+		overflow: hidden;
+		margin: 0;
+		img {
+			height: 100%;
+			object-fit: contain;
+			object-position: center;
+		}
+	}
+}
