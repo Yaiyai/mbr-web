@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import BasicLayout from '../../layouts/BasicLayout'
 import { getMaquinas } from '../../components/api/maquinas'
 import { getThisSection } from '../../components/api/section'
@@ -11,11 +11,31 @@ import { CompanyContextNew } from '../../context/CompanyContextNew'
 import Dropdown from 'react-bootstrap/Dropdown'
 
 const ParqueDeMaquinaria = ({ theMaquinas, thisSection }) => {
-	const [allMaquinas] = useState(theMaquinas)
+	const isMounted = useRef(true)
+	const [allMaquinas, setAllMaquinas] = useState()
 	const [filter, setfilter] = useState(theMaquinas)
 	const [section] = useState(thisSection)
 	const [selected, setSelected] = useState('Ver todas')
 	const { companyFetched } = useContext(CompanyContextNew)
+
+	useEffect(() => {
+		if (isMounted) {
+			setAllMaquinas(
+				theMaquinas.sort((a, b) => {
+					if (a.createdAt > b.createdAt) {
+						return -1
+					}
+					if (a.createdAt < b.createdAt) {
+						return 1
+					}
+					return 0
+				})
+			)
+		}
+		return () => {
+			isMounted.current = false
+		}
+	}, [allMaquinas])
 
 	const filterThisCategory = (filterId) => {
 		setSelected(filterId)

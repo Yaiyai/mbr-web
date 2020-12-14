@@ -170,6 +170,11 @@ const NavBar = ({ clase, company }) => {
 								</Link>
 							</li>
 							<li onClick={hideMenu}>
+								<Link href='/calidad#certificaciones'>
+									<a>Certificaciones</a>
+								</Link>
+							</li>
+							<li onClick={hideMenu}>
 								<Link href='/#ubicacion'>
 									<a>Ubicación</a>
 								</Link>
