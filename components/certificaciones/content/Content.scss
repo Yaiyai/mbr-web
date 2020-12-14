@@ -1,0 +1,6 @@
+.text-image {
+	margin-bottom: calc(#{$module} * 1);
+	img {
+		margin: calc(#{$module} * 1) 0 calc(#{$module} * 2;);
+	}
+}

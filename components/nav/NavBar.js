@@ -80,6 +80,11 @@ const NavBar = ({ clase, company }) => {
 										<a>Calidad</a>
 									</Link>
 								</li>
+								<li>
+									<Link href='/calidad#certificaciones'>
+										<a>Certificaciones</a>
+									</Link>
+								</li>
 							</ul>
 						</div>
 						<div>

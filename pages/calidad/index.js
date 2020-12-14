@@ -8,13 +8,19 @@ import { useRef } from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import Modal from 'react-bootstrap/Modal'
+import Certificaciones from '../../components/certificaciones/Certificaciones'
+import { Content } from '../../components/certificaciones/content/Content'
 
-const Calidad = ({ thisSection }) => {
+const Calidad = ({ thisSection, certificaciones }) => {
 	const isMounted = useRef(true)
 	const [items, setItems] = useState()
 	const [videos, setvideos] = useState()
 	const [show, setShow] = useState(false)
 	const [videoID, setVideoID] = useState()
+	const [introduccion, setIntroduccion] = useState()
+	const [medicion, setMedicion] = useState()
+	const [software, setSoftware] = useState()
+	const [marcadora, setMarcadora] = useState()
 
 	useEffect(() => {
 		if (isMounted.current) {
@@ -40,9 +46,16 @@ const Calidad = ({ thisSection }) => {
 						}
 					})
 				)
+				const getItroduccion = thisSection.text.split('((INTRODUCCION))')
+				const getMedicion = getItroduccion[1].split('((MEDICION))')
+				const getSoftware = getMedicion[1].split('((SOFTWARE))')
+				setIntroduccion({ __html: getItroduccion[0] })
+				setMedicion({ __html: getMedicion[0] })
+				setSoftware({ __html: getSoftware[0] })
+				setMarcadora({ __html: getSoftware[1] })
 			}
 		}
-	}, [thisSection, items])
+	}, [thisSection, items, medicion, software, marcadora, introduccion])
 
 	useEffect(() => {
 		return () => {
@@ -87,7 +100,8 @@ const Calidad = ({ thisSection }) => {
 		<BasicLayout location={'parque'}>
 			<PageHeader title={thisSection.title} subtitle={thisSection.subtitle} />
 			<section className='calidad container'>
-				{thisSection.parsedText ? <div className='text-editor' dangerouslySetInnerHTML={thisSection.parsedText}></div> : <p>{thisSection.text}</p>}
+				{(introduccion || medicion || software || marcadora) && <Content introduccion={introduccion} medicion={medicion} software={software} marcadora={marcadora} />}
+
 				{thisSection && (
 					<article className='trabajos'>
 						<h3>Trabajos</h3>
@@ -109,20 +123,17 @@ const Calidad = ({ thisSection }) => {
 						</Modal>
 					</article>
 				)}
-				<div className='certificacion'>
-					<h2>Certificación</h2>
-					<figure className='each-cert'>
-						<img src={thisSection.uniqueImage} alt='' />
-					</figure>
-				</div>
+				<a id='certificaciones'></a>
+				<Certificaciones certificaciones={certificaciones} />
 			</section>
 		</BasicLayout>
 	)
 }
 export const getServerSideProps = async () => {
 	const companyFetched = await getCompany()
-	const thisSection = await getThisSection('5fcf671d04dc5000172a58e5')
-	return { props: { thisSection, companyFetched } }
+	const thisSection = await getThisSection('5fd79f29b42da300176dc598')
+	const certificaciones = await getThisSection('5fd79c60b42da300176dc597')
+	return { props: { thisSection, companyFetched, certificaciones } }
 }
 
 export default Calidad

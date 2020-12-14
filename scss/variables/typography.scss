@@ -129,4 +129,15 @@ p {
 			}
 		}
 	}
+	.ql-indent-1,
+	.ql-indent-2 {
+		margin-left: calc(#{$module} * 1);
+		@include font-line-height($font-sm);
+		&::before {
+			content: '\2234';
+			margin-right: calc(#{$module} / 4);
+			font-weight: $text-semibold;
+			color: map-get($theme-colors, 'primary');
+		}
+	}
 }

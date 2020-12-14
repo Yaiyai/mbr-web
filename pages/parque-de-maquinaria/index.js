@@ -17,12 +17,12 @@ const ParqueDeMaquinaria = ({ theMaquinas, thisSection }) => {
 	const [selected, setSelected] = useState('Ver todas')
 	const { companyFetched } = useContext(CompanyContextNew)
 
-	const filterThisCategory = (id) => {
-		setSelected(id)
-		if (id === 'Ver todas') {
+	const filterThisCategory = (filterId) => {
+		setSelected(filterId)
+		if (filterId === 'Ver todas') {
 			setfilter(theMaquinas)
 		} else {
-			setfilter(allMaquinas.filter((elm) => elm.category === id))
+			setfilter(allMaquinas.filter((maq) => maq.category === filterId))
 		}
 	}
 
