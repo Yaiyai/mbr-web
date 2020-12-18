@@ -22,11 +22,11 @@ const ParqueDeMaquinaria = ({ theMaquinas, thisSection }) => {
 		if (isMounted) {
 			setAllMaquinas(
 				theMaquinas.sort((a, b) => {
-					if (a.createdAt > b.createdAt) {
-						return -1
-					}
-					if (a.createdAt < b.createdAt) {
+					if (a.order > b.order) {
 						return 1
+					}
+					if (a.order < b.order) {
+						return -1
 					}
 					return 0
 				})
