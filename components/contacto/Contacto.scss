@@ -12,7 +12,6 @@
 				width: calc((100% / 12) * 6);
 				@include breakpoint(md-down) {
 					width: calc((100% / 12) * 12);
-					text-align: center;
 				}
 			}
 			.right {

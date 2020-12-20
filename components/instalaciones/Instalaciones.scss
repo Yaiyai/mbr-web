@@ -57,6 +57,7 @@
 			padding: calc(#{$module} * 2);
 			@include breakpoint(md-down) {
 				width: calc((100% / 12) * 12);
+				padding: calc(#{$module} / 2);
 			}
 		}
 		.right {
