@@ -42,19 +42,16 @@ export const Contacto = ({ sections }) => {
 						<h2>{contact.title}</h2>
 						<div className='fix'>
 							<div className='left'>
-								{contact.parsedText ? <div className='contact-text' dangerouslySetInnerHTML={contact.parsedText}></div> : <p className='contact-text'>{contact.text}</p>}
-								{contact?.features.slice(0, contact.features.length - 1).map((elm, idx) => (
-									<p className='contact-feat' key={idx}>
-										<strong>{elm.split(':')[0]}</strong>: {elm.split(':')[1]}
-									</p>
-								))}
-								<p className='work-with-us'>
-									{contact.features[contact.features.length - 1]}{' '}
-									<a className='link-to-modal' onClick={() => setShow(true)}>
-										aquí
-									</a>
-									.
-								</p>
+								{contact.parsedText ? (
+									<div>
+										<div className='text-editor' dangerouslySetInnerHTML={contact.parsedText}></div>
+										<button className='my-btn mini' onClick={() => setShow(true)}>
+											Enviar CV
+										</button>
+									</div>
+								) : (
+									<p className='contact-text'>{contact.text}</p>
+								)}
 							</div>
 							<div className='right'>
 								<form onSubmit={sendEmail}>

@@ -61,7 +61,7 @@
 				@include breakpoint(md-down) {
 					height: auto;
 					width: calc((100% / 12) * 12);
-					text-align: center;
+					padding: calc(#{$module} * 1) calc(#{$module} / 2);
 				}
 				.company-info {
 					h3 {

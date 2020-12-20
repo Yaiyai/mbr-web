@@ -55,6 +55,13 @@
 				@include breakpoint(lg) {
 					margin-left: calc(#{$module} / 6);
 				}
+				@include breakpoint(md-down) {
+					margin-left: calc(#{$module} / 2);
+					&:first-child {
+						margin-left: 0;
+					}
+				}
+
 				&:hover {
 					color: map-get($theme-colors, 'secondary');
 				}
@@ -62,8 +69,8 @@
 					width: calc(#{$module} / 1.5);
 					height: calc(#{$module} / 1.5);
 					@include breakpoint(md-down) {
-						width: calc(#{$module} * 1.5);
-						height: calc(#{$module} * 1.5);
+						width: calc(#{$module} * 1.25);
+						height: calc(#{$module} * 1.25);
 					}
 				}
 			}
@@ -144,7 +151,7 @@
 					color: map-get($theme-colors, 'primary');
 					@include font-line-height(24px);
 					display: block;
-					padding: $module 0;
+					padding: calc(#{$module} / 2) 0;
 				}
 			}
 		}
