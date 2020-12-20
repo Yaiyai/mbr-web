@@ -10,6 +10,7 @@ import { useState } from 'react'
 import Modal from 'react-bootstrap/Modal'
 import Certificaciones from '../../components/certificaciones/Certificaciones'
 import { Content } from '../../components/certificaciones/content/Content'
+import Head from 'next/head'
 
 const Calidad = ({ thisSection, certificaciones }) => {
 	const isMounted = useRef(true)
