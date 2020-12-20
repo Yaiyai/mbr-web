@@ -43,7 +43,14 @@ export const Cv = ({ sections, setShow }) => {
 								(elm) =>
 									elm !== 'mensaje' && (
 										<div key={elm} className='input-label'>
-											<label htmlFor={elm}>{elm}</label>
+											{elm === 'cv' ? (
+												<label htmlFor={elm}>
+													{elm}: <em>El archivo debe de ser menor a 500kb</em>
+												</label>
+											) : (
+												<label htmlFor={elm}>{elm}</label>
+											)}
+
 											{elm === 'email' && <input type='email' name={elm} placeholder={elm} id={elm} required />}
 											{elm === 'tel' && <input type='phone' name={elm} placeholder={elm} id={elm} required />}
 											{elm === 'nombre' && <input type='text' name={elm} placeholder={elm} id={elm} required />}
