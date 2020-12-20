@@ -99,7 +99,15 @@ const MaquinaSelected = () => {
 			{thisMaquina && (
 				<BasicLayout location={'parque'}>
 					<Head>
-						<title>MBR || {thisMaquina.name} </title>
+						<meta name='description' content={thisMaquina.name} />
+						<meta property='og:description' content={thisMaquina.name} />
+						<meta name='twitter:description' content={`${thisMaquina.name}`} />
+						<meta name='robots' content='index, follow' />
+						<meta name='googlebot' content='index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' />
+						<meta name='bingbot' content='index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' />
+						<meta name='twitter:title' content={`${thisMaquina.name} || MBR`} />
+						<meta property='og:title' content={`${thisMaquina.name} || MBR`} />
+						<title>{thisMaquina.name} || MBR</title>
 					</Head>
 					<PageHeader title={thisMaquina.name} />
 

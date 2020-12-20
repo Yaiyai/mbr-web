@@ -98,6 +98,15 @@ const Calidad = ({ thisSection, certificaciones }) => {
 
 	return (
 		<BasicLayout location={'parque'}>
+			<Head>
+				<meta name='robots' content='index, follow' />
+				<meta name='googlebot' content='index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' />
+				<meta name='bingbot' content='index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' />
+				<meta name='twitter:title' content='Calidad y certificaciones || MBR' />
+				<meta property='og:title' content='Calidad y certificaciones || MBR' />
+				<title>Calidad y certificaciones || MBR</title>
+			</Head>
+
 			<PageHeader title={thisSection.title} subtitle={thisSection.subtitle} />
 			<section className='calidad container'>
 				{(introduccion || medicion || software || marcadora) && <Content introduccion={introduccion} medicion={medicion} software={software} marcadora={marcadora} />}
