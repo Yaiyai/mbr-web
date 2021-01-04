@@ -20,17 +20,10 @@
 			justify-content: space-between;
 			margin-bottom: calc(#{$module} * 3);
 			background-color: white;
-			.line {
-				width: 12px;
-				height: inherit;
-				background-color: map-get($theme-colors, 'primary');
-				border-radius: 20px;
-			}
 			.fix {
 				width: 99%;
 				margin-left: calc(#{$module} * 0.5);
 				.each-hit {
-					margin-bottom: calc(#{$module} * 1);
 					position: relative;
 					&::before {
 						position: absolute;
@@ -38,11 +31,21 @@
 						content: '\29BF';
 						font-weight: $text-bold;
 						color: white;
-						font-size: 19px;
+						height: 100%;
+						background-color: map-get($theme-colors, 'primary');
+						width: 11px;
 						top: 0;
 					}
 					&:first-child {
 						margin-top: calc(#{$module} * 1);
+						&::before {
+							border-radius: 20px 20px 0 0;
+						}
+					}
+					&:last-child {
+						&::before {
+							border-radius: 0 0 20px 20px;
+						}
 					}
 				}
 			}
