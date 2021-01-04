@@ -40,8 +40,15 @@ export const Historia = ({ sections }) => {
 						<p className='subtitle'>{historia.subtitle}</p>
 						<h2>{historia.title}</h2>
 						<article className='timeline'>
-							{/* <div className='line'></div> */}
-							<div className='fix'>{cortes && cortes.map((elm, idx) => <div className='text-editor each-hit' key={idx} dangerouslySetInnerHTML={elm}></div>)}</div>
+							<div className='line'></div>
+							<ul className='fix'>
+								{cortes &&
+									cortes.map((elm, idx) => (
+										<li key={idx}>
+											<div className='text-editor' dangerouslySetInnerHTML={elm}></div>
+										</li>
+									))}
+							</ul>
 						</article>
 						{gracias && <div className='text-editor gracias' dangerouslySetInnerHTML={gracias}></div>}
 					</div>
