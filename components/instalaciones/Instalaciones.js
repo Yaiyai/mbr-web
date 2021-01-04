@@ -4,9 +4,6 @@ import SwiperCore, { Autoplay, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 SwiperCore.use([Autoplay, Pagination])
 
-import { faCheckCircle, faAngleDoubleLeft } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
 export const Instalaciones = ({ sections }) => {
 	const isMounted = useRef(true)
 	const [instalaciones, setInstalaciones] = useState()

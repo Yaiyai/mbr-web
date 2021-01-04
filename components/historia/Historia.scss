@@ -15,46 +15,41 @@
 		z-index: -1;
 	}
 	.container {
-		display: flex;
-		@include breakpoint(md-down) {
-			flex-direction: column-reverse;
-		}
-		.left,
-		.right {
-			padding: 0 $module;
-			width: calc((100% / 12) * 6);
-			@include breakpoint(md-down) {
-				width: calc((100% / 12) * 12);
+		.timeline {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: calc(#{$module} * 3);
+			background-color: white;
+			.line {
+				width: 12px;
+				height: inherit;
+				background-color: map-get($theme-colors, 'primary');
+				border-radius: 20px;
 			}
-		}
-		.left {
-			@include breakpoint(md-down) {
-				height: 350px;
-			}
-			.swiper-container {
-				height: 100%;
-				width: 100%;
-				.swiper-wrapper {
-					height: 100%;
-					width: 100%;
-					.swiper-slide {
-						height: 100%;
-						width: 100%;
-						overflow: hidden;
-						img {
-							height: 100%;
-							object-fit: cover;
-							object-position: center;
-						}
+			.fix {
+				width: 99%;
+				margin-left: calc(#{$module} * 0.5);
+				.each-hit {
+					margin-bottom: calc(#{$module} * 1);
+					position: relative;
+					&::before {
+						position: absolute;
+						left: calc(#{$module} * (-1));
+						content: '\29BF';
+						font-weight: $text-bold;
+						color: white;
+						font-size: 19px;
+						top: 0;
+					}
+					&:first-child {
+						margin-top: calc(#{$module} * 1);
 					}
 				}
 			}
 		}
-		.right {
-			@include breakpoint(md-down) {
-				background-color: white;
-				padding: calc(#{$module} / 2);
-			}
+		.gracias {
+			background-color: white;
+			padding: calc(#{$module} * 1);
 		}
 	}
 }
