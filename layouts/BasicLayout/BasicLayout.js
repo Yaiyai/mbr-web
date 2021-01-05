@@ -16,6 +16,10 @@ const BasicLayout = (props) => {
 				<meta name='robots' content='index, follow' />
 				<meta name='googlebot' content='index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' />
 				<meta name='bingbot' content='index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1' />
+				<meta
+					name='keywords'
+					content='MECANIZADO, HERMLE, FOX, REINOSA, REQUEJO, BRAÑOSERA, FRESA, FRESADO, TORNO, TORNEADO, CNC, CAD, CAM, CANTABRIA, MECANIZADO CANTABRIA, FRESADO CANTABRIA, FRESADO PALENCIA, MECANIZADO PALENCIA, HERMLE CANTABRIA, HERMLE PALENCIA'
+				/>
 				<meta property='og:type' content='website' />
 				<meta property='og:title' content='Mecánica Brañosera || MBR' />
 				<meta property='og:image' content='https://res.cloudinary.com/mbr-app/image/upload/v1608467790/og_image_opt_alxcmd.jpg' />

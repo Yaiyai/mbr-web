@@ -90,7 +90,7 @@ export const Trabajos = ({ sections }) => {
 
 	return (
 		<>
-			{trabajos && (
+			{trabajos && trabajos.gallery.length !== 0 && (
 				<section className='trabajos'>
 					<div className='container'>
 						<h2>{trabajos.title}</h2>

@@ -15,46 +15,74 @@
 		z-index: -1;
 	}
 	.container {
-		display: flex;
-		@include breakpoint(md-down) {
-			flex-direction: column-reverse;
-		}
-		.left,
-		.right {
-			padding: 0 $module;
-			width: calc((100% / 12) * 6);
-			@include breakpoint(md-down) {
-				width: calc((100% / 12) * 12);
-			}
-		}
-		.left {
-			@include breakpoint(md-down) {
-				height: 350px;
-			}
-			.swiper-container {
+		.timeline {
+			position: relative;
+			background-color: white;
+			margin-bottom: calc(#{$module} * 2);
+			padding-left: calc(#{$module} * 1);
+			.line {
+				position: absolute;
+				top: 0;
+				content: ' ';
+				display: block;
+				width: 6px;
 				height: 100%;
-				width: 100%;
-				.swiper-wrapper {
-					height: 100%;
-					width: 100%;
-					.swiper-slide {
-						height: 100%;
-						width: 100%;
-						overflow: hidden;
-						img {
-							height: 100%;
-							object-fit: cover;
-							object-position: center;
+				margin-left: -3px;
+				border-radius: 20px;
+				background: map-get($theme-colors, 'primary');
+				background: -moz-linear-gradient(
+					top,
+					map-get($theme-colors, 'primary') 0%,
+					map-get($theme-colors, 'primary') 8%,
+					map-get($theme-colors, 'primary') 92%,
+					map-get($theme-colors, 'primary') 100%
+				);
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(30, 87, 153, 1)), color-stop(100%, rgba(125, 185, 232, 1)));
+				background: -webkit-linear-gradient(
+					top,
+					map-get($theme-colors, 'primary') 0%,
+					map-get($theme-colors, 'primary') 8%,
+					map-get($theme-colors, 'primary') 92%,
+					map-get($theme-colors, 'primary') 100%
+				);
+				background: -o-linear-gradient(top, map-get($theme-colors, 'primary') 0%, map-get($theme-colors, 'primary') 8%, map-get($theme-colors, 'primary') 92%, map-get($theme-colors, 'primary') 100%);
+				background: -ms-linear-gradient(top, map-get($theme-colors, 'primary') 0%, map-get($theme-colors, 'primary') 8%, map-get($theme-colors, 'primary') 92%, map-get($theme-colors, 'primary') 100%);
+				background: linear-gradient(
+					to bottom,
+					map-get($theme-colors, 'primary') 0%,
+					map-get($theme-colors, 'primary') 8%,
+					map-get($theme-colors, 'primary') 92%,
+					map-get($theme-colors, 'primary') 100%
+				);
+
+				z-index: 5;
+			}
+			.fix {
+				width: 98%;
+				li {
+					.text-editor {
+						padding-left: 24px;
+						position: relative;
+						&::before {
+							position: absolute;
+							top: 6px;
+							left: -6px;
+							content: ' ';
+							display: block;
+							width: 12px;
+							height: 12px;
+							background: #fff;
+							border-radius: 10px;
+							border: 4px solid map-get($theme-colors, 'secondary');
+							z-index: 6;
 						}
 					}
 				}
 			}
 		}
-		.right {
-			@include breakpoint(md-down) {
-				background-color: white;
-				padding: calc(#{$module} / 2);
-			}
+		.gracias {
+			background-color: white;
+			padding: calc(#{$module} * 1);
 		}
 	}
 }
