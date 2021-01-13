@@ -112,27 +112,6 @@ const Calidad = ({ thisSection, certificaciones }) => {
 			<section className='calidad container'>
 				{(introduccion || medicion || software || marcadora) && <Content introduccion={introduccion} medicion={medicion} software={software} marcadora={marcadora} />}
 
-				{thisSection && (
-					<article className='trabajos'>
-						<h3>Trabajos</h3>
-						{items && <PhotoSwipeGallery items={items} thumbnailContent={getThumbnailContent} />}
-						{videos?.length > 0 && (
-							<div>
-								<h3>Vídeos</h3>
-								<article className='media-section'>
-									{videos.map((elm) => (
-										<a key={elm.id} onClick={() => handleModal(elm.src)} className='each-media'>
-											<img src={elm.thumbnail} alt='' />
-										</a>
-									))}
-								</article>
-							</div>
-						)}
-						<Modal centered className='my-modals video' show={show} onHide={() => setShow(false)}>
-							{showThisVideo()}
-						</Modal>
-					</article>
-				)}
 				<a id='certificaciones'></a>
 				<Certificaciones certificaciones={certificaciones} />
 			</section>
