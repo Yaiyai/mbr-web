@@ -142,7 +142,7 @@ const MaquinaSelected = () => {
 
 					{thisMaquina?.gallery.length > 0 && (
 						<section className='maquina-gallery container'>
-							<h2>Trabajos de esta máquina</h2>
+							<h2>Fotos</h2>
 							{items && <PhotoSwipeGallery items={items} thumbnailContent={getThumbnailContent} />}
 							{videos?.length > 0 && (
 								<div>
