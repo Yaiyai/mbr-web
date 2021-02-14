@@ -94,11 +94,6 @@ const NavBar = ({ clase, company }) => {
 										<a>Contacto</a>
 									</Link>
 								</li>
-								<li>
-									<Link href='/#ubicacion'>
-										<a>Ubicación</a>
-									</Link>
-								</li>
 							</ul>
 							{(theCompany.twitter || theCompany.facebook || theCompany.linkedin || theCompany.instagram) && (
 								<ul className='rrss-buttons'>

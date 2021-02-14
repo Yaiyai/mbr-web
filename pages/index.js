@@ -39,8 +39,6 @@ const Home = ({ allSections, theMaquinas }) => {
 				<Trabajos sections={sections} />
 				<a id='contacto'></a>
 				<Contacto sections={sections} />
-				<a id='ubicacion'></a>
-				<Ubicacion sections={sections} />
 			</BasicLayout>
 		</div>
 	)
