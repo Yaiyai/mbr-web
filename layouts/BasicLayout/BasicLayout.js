@@ -33,7 +33,6 @@ const BasicLayout = (props) => {
 				<meta name='twitter:title' content='Mecánica Brañosera || MBR' />
 				<meta name='twitter:description' content='Mecanizado de precisión CAD CAM CNC' />
 
-				<script src='https://cmp.osano.com/6oljJSIUNV9r1ZFS/3dbe5f87-28e9-45af-92b7-6da4839bd0e2/osano.js'></script>
 				<title>Mecánica Brañosera || MBR</title>
 			</Head>
 			{location == 'index' ? <NavBar company={companyFetched} clase={'nav-index'} /> : <NavBar company={companyFetched} clase={'nav-normal'} />}
