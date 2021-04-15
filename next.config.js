@@ -1,5 +1,6 @@
 module.exports = {
 	distDir: 'build',
+	target: 'serverless',
 	env: {
 		baseURL: 'https://mbr-cms.herokuapp.com/api',
 		userEmail: 'user_BrRNZEDBLJioDfKV1amHQ',
